@@ -1,4 +1,5 @@
 import Navigation from './Navigation'
+import HeaderActions from './HeaderActions'
 
 export default function Header() {
   return (
@@ -8,7 +9,10 @@ export default function Header() {
           Armin
         </h1>
 
-        <Navigation />
+        <div className="flex items-center gap-4">
+          <Navigation />
+          <HeaderActions />
+        </div>
       </div>
     </header>
   )
