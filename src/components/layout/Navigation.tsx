@@ -1,9 +1,11 @@
 'use client'
 
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { useAuth } from '@/components/auth/AuthProvider'
 
 export default function Navigation() {
+  const t = useTranslations('common')
   const { status, logout } = useAuth()
 
   const isAuthenticated = status === 'authenticated'
@@ -11,23 +13,23 @@ export default function Navigation() {
   return (
     <nav className="flex gap-4">
       <Link href="/items">
-        Items
+        {t('items')}
       </Link>
 
       {isAuthenticated ? (
         <>
           <Link href="/account">
-            Account
+            {t('account')}
           </Link>
 
           <button onClick={logout}>
-            Logout
+            {t('logout')}
           </button>
         </>
       ) : (
         status !== 'loading' && (
           <Link href="/login">
-            Login
+            {t('login')}
           </Link>
         )
       )}
