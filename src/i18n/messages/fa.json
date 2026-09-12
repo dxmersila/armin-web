@@ -7,6 +7,8 @@
     "logout": "خروج",
     "switchToLight": "تغییر به حالت روشن",
     "switchToDark": "تغییر به حالت تاریک",
-    "changeLanguage": "تغییر زبان"
+    "changeLanguage": "تغییر زبان",
+    "toggleMenu": "باز کردن منو",
+    "closeMenu": "بستن منو"
   }
 }
