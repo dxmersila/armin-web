@@ -4,19 +4,21 @@ import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 import { useTranslations } from '@/hooks/useTranslations'
-import HeaderActions from '@/components/layout/HeaderActions'
 import NavigationLinks from '@/components/layout/NavigationLinks'
+import UserMenu from '@/components/layout/UserMenu'
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false)
   const t = useTranslations()
 
+  const closeMenu = () => setOpen(false)
+
   return (
-    <div className="relative md:hidden">
+    <div className="relative">
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex size-10 items-center justify-center rounded-xl border border-border/80 bg-surface/80 text-foreground transition hover:bg-surface-muted focus:outline-none focus:ring-2 focus:ring-foreground/20"
+        className="inline-flex size-9 items-center justify-center rounded-md text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
         aria-label={
           open
             ? t('common.closeMenu')
@@ -25,7 +27,11 @@ export default function MobileMenu() {
         aria-expanded={open}
         aria-controls="mobile-navigation"
       >
-        {open ? <X size={20} /> : <Menu size={20} />}
+        {open ? (
+          <X className="size-5" />
+        ) : (
+          <Menu className="size-5" />
+        )}
       </button>
 
       {open && (
@@ -33,22 +39,22 @@ export default function MobileMenu() {
           <button
             type="button"
             aria-label={t('common.closeMenu')}
-            className="fixed inset-0 z-40 cursor-default bg-black/20 backdrop-blur-[2px]"
-            onClick={() => setOpen(false)}
+            className="fixed inset-0 z-40 bg-black/40"
+            onClick={closeMenu}
           />
 
           <div
             id="mobile-navigation"
-            className="absolute end-0 top-full z-50 mt-3 w-[min(20rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-border/80 bg-surface/95 p-3 shadow-2xl backdrop-blur-xl"
+            className="absolute inset-s-0 top-full z-50 mt-2 w-80 max-w-[calc(100vw-1.5rem)] border border-border bg-surface p-3 shadow-xl"
           >
-            <nav className="flex flex-col gap-1 [&>a]:rounded-xl [&>a]:px-3 [&>a]:py-2.5 [&>a]:transition [&>a]:hover:bg-surface-muted [&>button]:rounded-xl [&>button]:px-3 [&>button]:py-2.5 [&>button]:text-start [&>button]:transition [&>button]:hover:bg-surface-muted">
-              <NavigationLinks
-                onNavigate={() => setOpen(false)}
-              />
-
-              <div className="my-2 border-t border-border/70 pt-3">
-                <HeaderActions />
+            <nav className="flex flex-col">
+              <div className="flex flex-col gap-1">
+                <NavigationLinks onNavigate={closeMenu} />
               </div>
+
+              <div className="my-3 border-t border-border" />
+
+              <UserMenu onNavigate={closeMenu} />
             </nav>
           </div>
         </>
