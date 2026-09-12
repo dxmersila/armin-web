@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import '@fontsource-variable/vazirmatn'
 import Header from '@/components/layout/Header'
 import AppProviders from '@/providers/AppProviders'
 
@@ -15,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="fa" dir="rtl" suppressHydrationWarning>
       <body>
         <AppProviders>
           <Header />
