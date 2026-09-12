@@ -1,0 +1,9 @@
+{
+  "common": {
+    "appName": "Armin",
+    "items": "Items",
+    "login": "Login",
+    "account": "Account",
+    "logout": "Logout"
+  }
+}
