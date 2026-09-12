@@ -4,7 +4,9 @@ import Link from 'next/link'
 import { useAuth } from '@/components/auth/AuthProvider'
 
 export default function Navigation() {
-  const { user, logout } = useAuth()
+  const { status, logout } = useAuth()
+
+  const isAuthenticated = status === 'authenticated'
 
   return (
     <nav className="flex gap-4">
@@ -12,22 +14,22 @@ export default function Navigation() {
         Items
       </Link>
 
-      {user ? (
+      {isAuthenticated ? (
         <>
           <Link href="/account">
             Account
           </Link>
 
-          <button
-            onClick={logout}
-          >
+          <button onClick={logout}>
             Logout
           </button>
         </>
       ) : (
-        <Link href="/login">
-          Login
-        </Link>
+        status !== 'loading' && (
+          <Link href="/login">
+            Login
+          </Link>
+        )
       )}
     </nav>
   )
