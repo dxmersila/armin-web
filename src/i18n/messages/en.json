@@ -4,6 +4,9 @@
     "items": "Items",
     "login": "Login",
     "account": "Account",
-    "logout": "Logout"
+    "logout": "Logout",
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "changeLanguage": "Change language"
   }
 }

@@ -4,6 +4,9 @@
     "items": "آیتم‌ها",
     "login": "ورود",
     "account": "حساب کاربری",
-    "logout": "خروج"
+    "logout": "خروج",
+    "switchToLight": "تغییر به حالت روشن",
+    "switchToDark": "تغییر به حالت تاریک",
+    "changeLanguage": "تغییر زبان"
   }
 }

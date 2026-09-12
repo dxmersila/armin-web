@@ -3,9 +3,11 @@
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import { useTranslations } from '@/hooks/useTranslations'
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme()
+  const t = useTranslations()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -24,8 +26,8 @@ export default function ThemeToggle() {
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       aria-label={
         isDark
-          ? 'Switch to light mode'
-          : 'Switch to dark mode'
+          ? t('common.switchToLight')
+          : t('common.switchToDark')
       }
       className="rounded-lg border p-2 transition"
     >
