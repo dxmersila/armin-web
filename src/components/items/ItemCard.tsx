@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { Item } from '@/types/item'
 
 interface ItemCardProps {
@@ -7,9 +8,11 @@ interface ItemCardProps {
 export default function ItemCard({ item }: ItemCardProps) {
   return (
     <article className="rounded border p-4">
-      <h2 className="text-lg font-semibold">
-        {item.title}
-      </h2>
+      <Link href={`/items/${item.slug}`}>
+        <h2 className="text-lg font-semibold hover:underline">
+          {item.title}
+        </h2>
+      </Link>
 
       {item.description && (
         <p className="mt-2 text-sm text-gray-600">
