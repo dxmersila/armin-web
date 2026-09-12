@@ -15,7 +15,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (status === 'authenticated') {
-      router.replace('/')
+      router.replace('/account')
     }
   }, [router, status])
 
@@ -26,7 +26,7 @@ export default function LoginPage() {
 
     try {
       await login({ email, password })
-      router.push('/')
+      router.push('/account')
     } catch {
       setError('ورود ناموفق بود.')
     } finally {
