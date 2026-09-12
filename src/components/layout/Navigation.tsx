@@ -1,11 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/hooks/useTranslations'
 import { useAuth } from '@/components/auth/AuthProvider'
 
 export default function Navigation() {
-  const t = useTranslations('common')
+  const t = useTranslations()
   const { status, logout } = useAuth()
 
   const isAuthenticated = status === 'authenticated'
