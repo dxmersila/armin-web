@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import '@fontsource-variable/vazirmatn'
 import Header from '@/components/layout/Header'
 import AppProviders from '@/providers/AppProviders'
 
