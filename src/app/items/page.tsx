@@ -1,8 +1,20 @@
 import { listItems } from '@/lib/api/itemService'
 import ItemCard from '@/components/items/ItemCard'
 
-export default async function ItemsPage() {
-  const response = await listItems()
+interface ItemsPageProps {
+  searchParams: Promise<{
+    category?: string
+  }>
+}
+
+export default async function ItemsPage({
+  searchParams,
+}: ItemsPageProps) {
+  const params = await searchParams
+
+  const response = await listItems({
+    category: params.category,
+  })
 
   return (
     <main className="mx-auto max-w-5xl p-6">
