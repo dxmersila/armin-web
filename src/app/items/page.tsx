@@ -3,11 +3,13 @@ import { listItems } from '@/lib/api/itemService'
 import ItemCard from '@/components/items/ItemCard'
 import ItemFilters from '@/components/items/ItemFilters'
 import ItemSearch from '@/components/items/ItemSearch'
+import ItemSort from '@/components/items/ItemSort'
 
 interface ItemsPageProps {
   searchParams: Promise<{
     category?: string
     search?: string
+    sort?: 'latest' | 'oldest' | 'title'
   }>
 }
 
@@ -20,6 +22,7 @@ export default async function ItemsPage({
     listItems({
       category: params.category,
       search: params.search,
+      sort: params.sort,
     }),
     listCategories(),
   ])
@@ -37,6 +40,10 @@ export default async function ItemsPage({
 
       <ItemSearch
         activeSearch={params.search}
+      />
+
+      <ItemSort
+        activeSort={params.sort}
       />
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
