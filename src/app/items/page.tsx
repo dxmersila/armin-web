@@ -2,10 +2,12 @@ import { listCategories } from '@/lib/api/categoryService'
 import { listItems } from '@/lib/api/itemService'
 import ItemCard from '@/components/items/ItemCard'
 import ItemFilters from '@/components/items/ItemFilters'
+import ItemSearch from '@/components/items/ItemSearch'
 
 interface ItemsPageProps {
   searchParams: Promise<{
     category?: string
+    search?: string
   }>
 }
 
@@ -17,6 +19,7 @@ export default async function ItemsPage({
   const [response, categoriesResponse] = await Promise.all([
     listItems({
       category: params.category,
+      search: params.search,
     }),
     listCategories(),
   ])
@@ -30,6 +33,10 @@ export default async function ItemsPage({
       <ItemFilters
         categories={categoriesResponse.data}
         activeCategory={params.category}
+      />
+
+      <ItemSearch
+        activeSearch={params.search}
       />
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
