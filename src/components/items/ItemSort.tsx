@@ -14,15 +14,19 @@ export default function ItemSort({
   activeSort,
 }: ItemSortProps) {
   return (
-    <div className="mt-4 flex gap-2">
+    <div className="flex gap-2">
       {options.map((option) => (
         <Link
           key={option.value}
           href={`/items?sort=${option.value}`}
-          className="rounded border px-3 py-2"
+          className={[
+            'rounded-lg border px-3 py-2 text-sm font-medium transition',
+            activeSort === option.value
+              ? 'border-foreground bg-foreground text-background'
+              : 'border-border bg-surface text-muted hover:text-foreground',
+          ].join(' ')}
         >
           {option.label}
-          {activeSort === option.value && ' ✓'}
         </Link>
       ))}
     </div>

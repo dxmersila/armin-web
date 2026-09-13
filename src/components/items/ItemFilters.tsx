@@ -11,10 +11,15 @@ export default function ItemFilters({
   activeCategory,
 }: ItemFiltersProps) {
   return (
-    <div className="mt-4 flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2">
       <Link
         href="/items"
-        className={!activeCategory ? 'font-bold' : ''}
+        className={[
+          'rounded-full px-4 py-2 text-sm font-medium transition',
+          !activeCategory
+            ? 'bg-foreground text-background'
+            : 'bg-surface-muted text-muted hover:text-foreground',
+        ].join(' ')}
       >
         All
       </Link>
@@ -23,11 +28,12 @@ export default function ItemFilters({
         <Link
           key={category.id}
           href={`/items?category=${encodeURIComponent(category.slug)}`}
-          className={
+          className={[
+            'rounded-full px-4 py-2 text-sm font-medium transition',
             activeCategory === category.slug
-              ? 'font-bold'
-              : ''
-          }
+              ? 'bg-foreground text-background'
+              : 'bg-surface-muted text-muted hover:text-foreground',
+          ].join(' ')}
         >
           {category.name}
         </Link>

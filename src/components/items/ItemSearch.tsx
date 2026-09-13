@@ -10,18 +10,18 @@ export default function ItemSearch({
   return (
     <form
       action="/items"
-      className="mt-4 flex gap-2"
+      className="flex flex-1 gap-2"
     >
       <input
         name="search"
         defaultValue={activeSearch}
-        placeholder="Search items..."
-        className="rounded border px-3 py-2"
+        placeholder="Search products..."
+        className="min-w-0 flex-1 rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-foreground/30"
       />
 
       <button
         type="submit"
-        className="rounded border px-4 py-2"
+        className="rounded-lg bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-85"
       >
         Search
       </button>
@@ -29,7 +29,7 @@ export default function ItemSearch({
       {activeSearch && (
         <Link
           href="/items"
-          className="rounded border px-4 py-2"
+          className="rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-muted transition hover:text-foreground"
         >
           Clear
         </Link>
