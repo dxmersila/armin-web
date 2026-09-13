@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import { getItem } from '@/lib/api/itemService'
 import ItemGallery from '@/components/items/ItemGallery'
 import ItemHeader from '@/components/items/ItemHeader'
@@ -16,8 +17,14 @@ export default async function ItemDetailPage({
 }: ItemDetailPageProps) {
   const { slug } = await params
 
-  const response = await getItem(decodeURIComponent(slug))
-  const item = response.data
+  let item
+
+  try {
+    const response = await getItem(decodeURIComponent(slug))
+    item = response.data
+  } catch {
+    notFound()
+  }
 
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-16">
