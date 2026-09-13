@@ -1,56 +1,21 @@
 import Link from 'next/link'
 
-import { listCategories } from '@/lib/api/categoryService'
 import { listItems } from '@/lib/api/itemService'
 import ItemCard from '@/components/items/ItemCard'
+import HeroSection from '@/components/home/HeroSection'
 
 export default async function Home() {
-  const [itemsResponse, categoriesResponse] = await Promise.all([
-    listItems({
-      sort: 'latest',
-      page: 1,
-    }),
-    listCategories(),
-  ])
+  const itemsResponse = await listItems({
+    sort: 'latest',
+    page: 1,
+  })
 
   const latestItems = itemsResponse.data
-  const categories = categoriesResponse.data.slice(0, 6)
 
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-16">
-      <section>
-        <p className="text-sm font-medium text-muted">
-          Explore Marketplace
-        </p>
+      <HeroSection />
 
-        <h1 className="mt-2 max-w-3xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-          Discover digital products
-          built for creators and teams.
-        </h1>
-
-        <p className="mt-4 max-w-2xl text-base leading-7 text-muted">
-          Explore templates, assets, and digital resources
-          designed to help you build faster.
-        </p>
-
-        <form
-          action="/items"
-          className="mt-8 flex max-w-2xl gap-2"
-        >
-          <input
-            name="search"
-            placeholder="Search products..."
-            className="min-w-0 flex-1 rounded-md border border-border bg-surface px-4 py-3 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-foreground/30"
-          />
-
-          <button
-            type="submit"
-            className="rounded-md bg-foreground px-5 py-3 text-sm font-medium text-background transition-opacity hover:opacity-85"
-          >
-            Search
-          </button>
-        </form>
-      </section>
 
       {latestItems.length > 0 && (
         <section className="mt-16">
