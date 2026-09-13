@@ -1,4 +1,5 @@
 import { getItem } from '@/lib/api/itemService'
+import ItemGallery from '@/components/items/ItemGallery'
 
 interface ItemDetailPageProps {
   params: Promise<{
@@ -16,6 +17,8 @@ export default async function ItemDetailPage({
 
   return (
     <main className="mx-auto max-w-5xl p-6">
+      <ItemGallery item={item} />
+
       <h1 className="text-3xl font-bold">
         {item.title}
       </h1>
