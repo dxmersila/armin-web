@@ -2,6 +2,7 @@ import { getItem } from '@/lib/api/itemService'
 import ItemGallery from '@/components/items/ItemGallery'
 import ItemHeader from '@/components/items/ItemHeader'
 import ItemMeta from '@/components/items/ItemMeta'
+import ItemActions from '@/components/items/ItemActions'
 
 interface ItemDetailPageProps {
   params: Promise<{
@@ -31,6 +32,10 @@ export default async function ItemDetailPage({
 
       <div className="mt-8">
         <ItemMeta item={item} />
+      </div>
+
+      <div className="mt-8">
+        <ItemActions item={item} />
       </div>
     </main>
   )
