@@ -8,18 +8,18 @@ export default function ItemMeta({
   item,
 }: ItemMetaProps) {
   return (
-    <section className="space-y-5">
+    <section className="rounded-2xl border border-border bg-surface p-5">
       {item.categories.length > 0 && (
         <div>
           <h2 className="text-sm font-semibold text-foreground">
-            Categories
+            Category
           </h2>
 
           <div className="mt-3 flex flex-wrap gap-2">
             {item.categories.map((category) => (
               <span
                 key={category.id}
-                className="rounded-full bg-surface-muted px-3 py-1.5 text-sm text-muted"
+                className="rounded-full bg-foreground px-3 py-1.5 text-sm font-medium text-background"
               >
                 {category.name}
               </span>
@@ -29,7 +29,7 @@ export default function ItemMeta({
       )}
 
       {item.tags.length > 0 && (
-        <div>
+        <div className={item.categories.length > 0 ? 'mt-6' : ''}>
           <h2 className="text-sm font-semibold text-foreground">
             Tags
           </h2>
@@ -38,9 +38,9 @@ export default function ItemMeta({
             {item.tags.map((tag) => (
               <span
                 key={tag.id}
-                className="rounded-full border border-border px-3 py-1.5 text-sm text-muted"
+                className="rounded-full border border-border px-3 py-1.5 text-sm text-muted transition hover:text-foreground"
               >
-                {tag.name}
+                #{tag.name}
               </span>
             ))}
           </div>

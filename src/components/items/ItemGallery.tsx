@@ -12,15 +12,17 @@ export default function ItemGallery({
     item.media[0]
 
   return (
-    <div className="overflow-hidden rounded-xl border border-border bg-surface">
+    <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
       {primaryMedia ? (
-        <img
-          src={primaryMedia.file.url}
-          alt={item.title}
-          className="aspect-[16/10] h-full w-full object-cover"
-        />
+        <div className="aspect-[16/10] overflow-hidden">
+          <img
+            src={primaryMedia.file.url}
+            alt={item.title}
+            className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
+          />
+        </div>
       ) : (
-        <div className="flex aspect-[16/10] items-center justify-center text-sm text-muted">
+        <div className="flex aspect-[16/10] items-center justify-center bg-surface-muted text-sm text-muted">
           No image available
         </div>
       )}
