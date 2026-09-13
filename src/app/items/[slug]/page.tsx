@@ -1,6 +1,7 @@
 import { getItem } from '@/lib/api/itemService'
 import ItemGallery from '@/components/items/ItemGallery'
 import ItemHeader from '@/components/items/ItemHeader'
+import ItemMeta from '@/components/items/ItemMeta'
 
 interface ItemDetailPageProps {
   params: Promise<{
@@ -28,18 +29,8 @@ export default async function ItemDetailPage({
         </p>
       )}
 
-      <div className="mt-6">
-        <h2 className="font-semibold">
-          Categories
-        </h2>
-
-        <ul className="mt-2">
-          {item.categories.map((category) => (
-            <li key={category.id}>
-              {category.name}
-            </li>
-          ))}
-        </ul>
+      <div className="mt-8">
+        <ItemMeta item={item} />
       </div>
     </main>
   )
