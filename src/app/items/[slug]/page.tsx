@@ -3,6 +3,7 @@ import ItemGallery from '@/components/items/ItemGallery'
 import ItemHeader from '@/components/items/ItemHeader'
 import ItemMeta from '@/components/items/ItemMeta'
 import ItemActions from '@/components/items/ItemActions'
+import Breadcrumbs from '@/components/navigation/Breadcrumbs'
 
 interface ItemDetailPageProps {
   params: Promise<{
@@ -20,6 +21,18 @@ export default async function ItemDetailPage({
 
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-16">
+      <Breadcrumbs
+        items={[
+          {
+            label: 'Items',
+            href: '/items',
+          },
+          {
+            label: item.title,
+          },
+        ]}
+      />
+
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(320px,0.8fr)]">
         <section>
           <ItemGallery item={item} />
