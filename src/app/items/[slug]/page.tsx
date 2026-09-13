@@ -15,33 +15,29 @@ export default async function ItemDetailPage({
 }: ItemDetailPageProps) {
   const { slug } = await params
 
-  const decodedSlug = decodeURIComponent(slug)
-
-  const response = await getItem(decodedSlug)
+  const response = await getItem(decodeURIComponent(slug))
   const item = response.data
 
   return (
-    <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-14">
-      <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-        <ItemGallery item={item} />
+    <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-16">
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(320px,0.8fr)]">
+        <section>
+          <ItemGallery item={item} />
+        </section>
 
-        <div>
+        <aside className="space-y-8">
           <ItemHeader item={item} />
 
           {item.description && (
-            <p className="mt-6 text-sm leading-7 text-muted sm:text-base">
+            <p className="text-sm leading-7 text-muted sm:text-base">
               {item.description}
             </p>
           )}
 
-          <div className="mt-8">
-            <ItemMeta item={item} />
-          </div>
+          <ItemMeta item={item} />
 
-          <div className="mt-8">
-            <ItemActions item={item} />
-          </div>
-        </div>
+          <ItemActions item={item} />
+        </aside>
       </div>
     </main>
   )
