@@ -18,7 +18,7 @@ export default function MobileMenu() {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex size-9 items-center justify-center rounded-md text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
+        className="inline-flex size-10 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
         aria-label={
           open
             ? t('common.closeMenu')
@@ -45,9 +45,9 @@ export default function MobileMenu() {
 
           <div
             id="mobile-navigation"
-            className="absolute inset-s-0 top-full z-50 mt-2 w-80 max-w-[calc(100vw-1.5rem)] border border-border bg-surface p-3 shadow-xl"
+            className="absolute end-0 top-full z-50 mt-2 w-72 max-w-[calc(100vw-1rem)] border border-border bg-surface p-3 shadow-xl"
           >
-            <nav className="flex flex-col">
+            <nav className="flex flex-col text-start">
               <div className="flex flex-col gap-1">
                 <NavigationLinks onNavigate={closeMenu} />
               </div>

@@ -5,14 +5,13 @@ import UserMenu from '@/components/layout/UserMenu'
 
 export default function DesktopHeader() {
   return (
-    <div className="hidden min-h-16 items-center gap-6 md:flex">
-      <Logo />
-
-      <div className="flex flex-1 items-center justify-center">
+    <div className="hidden min-h-16 items-center justify-between gap-8 md:flex">
+      <div className="flex min-w-0 items-center gap-8">
+        <Logo />
         <Navigation />
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex shrink-0 items-center gap-3">
         <HeaderActions />
         <UserMenu />
       </div>

@@ -10,7 +10,7 @@ export default function CategorySection({
   categories,
 }: CategorySectionProps) {
   return (
-    <section className="mt-16">
+    <section id="categories" className="mt-16">
       <div className="flex items-center justify-between gap-4">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted">

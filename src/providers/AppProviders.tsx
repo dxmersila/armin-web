@@ -2,6 +2,7 @@
 
 import ThemeProvider from './ThemeProvider'
 import I18nProvider from '@/i18n/I18nProvider'
+import { LocaleProvider } from '@/i18n/LocaleProvider'
 import { AuthProvider } from '@/components/auth/AuthProvider'
 
 export default function AppProviders({
@@ -11,11 +12,13 @@ export default function AppProviders({
 }>) {
   return (
     <ThemeProvider>
-      <I18nProvider>
-        <AuthProvider>
-          {children}
-        </AuthProvider>
-      </I18nProvider>
+      <LocaleProvider>
+        <I18nProvider>
+          <AuthProvider>
+            {children}
+          </AuthProvider>
+        </I18nProvider>
+      </LocaleProvider>
     </ThemeProvider>
   )
 }

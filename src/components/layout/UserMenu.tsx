@@ -18,52 +18,51 @@ export default function UserMenu({
     return null
   }
 
-  const isAuthenticated = status === 'authenticated'
-
-  if (!isAuthenticated) {
+  if (status !== 'authenticated') {
     return (
-      <div className="flex w-full items-center justify-between gap-3 md:w-auto">
-        <div className="flex min-w-0 items-center gap-2">
-          <div className="flex size-9 shrink-0 items-center justify-center rounded-md bg-surface-muted text-muted">
-            <User className="size-4" />
-          </div>
-
-          <div className="min-w-0">
-            <p className="truncate text-sm font-medium text-foreground">
-              {t('common.guest')}
-            </p>
-          </div>
-        </div>
-
+      <div className="min-w-0">
         <Link
           href="/login"
           onClick={onNavigate}
-          className="inline-flex shrink-0 items-center gap-2 rounded-md border border-border px-3 py-2 text-sm font-medium text-foreground transition hover:bg-surface-muted"
+          aria-label={t('common.login')}
+          className="flex items-start gap-2"
         >
-          <LogIn className="size-4" />
-          {t('common.login')}
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-muted">
+            <User className="size-4" />
+          </span>
+
+          <div className="min-w-0 pt-0.5">
+            <p className="truncate text-sm font-medium text-foreground transition hover:text-muted">
+              {t('common.guest')}
+            </p>
+
+            <span className="mt-0.5 inline-flex items-center gap-1.5 text-xs font-medium text-muted transition hover:text-foreground">
+              <LogIn className="size-3.5" />
+              {t('common.login')}
+            </span>
+          </div>
         </Link>
       </div>
     )
   }
 
   return (
-    <div className="flex w-full items-center justify-between gap-3 md:w-auto">
+    <div className="min-w-0">
       <Link
         href="/account"
         onClick={onNavigate}
-        className="flex min-w-0 items-center gap-2 rounded-md px-2 py-1.5 transition hover:bg-surface-muted"
+        className="flex items-start gap-2"
       >
-        <div className="flex size-9 shrink-0 items-center justify-center rounded-md bg-surface-muted text-muted">
+        <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-muted">
           <User className="size-4" />
-        </div>
+        </span>
 
-        <div className="min-w-0">
-          <p className="max-w-44 truncate text-sm font-medium text-foreground">
-            {user?.name || t('common.profile')}
+        <div className="min-w-0 pt-0.5">
+          <p className="truncate text-sm font-medium text-foreground transition hover:text-muted">
+            {user?.name || t('common.account')}
           </p>
 
-          <p className="max-w-44 truncate text-xs text-muted">
+          <p className="mt-0.5 truncate text-xs text-muted">
             {user?.email}
           </p>
         </div>
@@ -75,11 +74,14 @@ export default function UserMenu({
           logout()
           onNavigate?.()
         }}
-        className="inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-border text-muted transition hover:bg-surface-muted hover:text-foreground"
         aria-label={t('common.logout')}
-        title={t('common.logout')}
+        className="mt-1 flex cursor-pointer items-center gap-2 text-xs font-medium text-muted transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
       >
-        <LogOut className="size-4" />
+        <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-muted">
+          <LogOut className="size-4" />
+        </span>
+
+        <span>{t('common.logout')}</span>
       </button>
     </div>
   )

@@ -1,8 +1,6 @@
 'use client'
 
-import {
-  NextIntlClientProvider,
-} from 'next-intl'
+import { NextIntlClientProvider } from 'next-intl'
 
 import { useLocale } from '@/hooks/useLocale'
 import fa from './messages/fa.json'
