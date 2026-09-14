@@ -62,7 +62,7 @@ export default function ItemCard({ item }: ItemCardProps) {
 
             {!isFree && (
               <span className="text-sm font-semibold tabular-nums text-foreground">
-                {item.price.toLocaleString('en-US')}
+                {item.price.toLocaleString('en-US')} T
               </span>
             )}
           </div>
