@@ -1,5 +1,7 @@
+'use client'
 import Link from 'next/link'
 import type { Category } from '@/types/category'
+import { useTranslations } from '@/hooks/useTranslations'
 
 interface ItemFiltersProps {
   categories: Category[]
@@ -10,6 +12,8 @@ export default function ItemFilters({
   categories,
   activeCategory,
 }: ItemFiltersProps) {
+  const t = useTranslations()
+
   return (
     <div className="flex flex-wrap gap-2">
       <Link
@@ -21,7 +25,7 @@ export default function ItemFilters({
             : 'bg-surface-muted text-muted hover:text-foreground',
         ].join(' ')}
       >
-        All
+        {t('filters.all')}
       </Link>
 
       {categories.map((category) => (

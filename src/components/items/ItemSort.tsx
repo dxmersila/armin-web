@@ -1,18 +1,24 @@
+'use client'
+
 import Link from 'next/link'
+
+import { useTranslations } from '@/hooks/useTranslations'
 
 interface ItemSortProps {
   activeSort?: 'latest' | 'oldest' | 'title'
 }
 
 const options = [
-  { label: 'Latest', value: 'latest' },
-  { label: 'Oldest', value: 'oldest' },
-  { label: 'Title', value: 'title' },
+  { key: 'latest', value: 'latest' },
+  { key: 'oldest', value: 'oldest' },
+  { key: 'title', value: 'title' },
 ] as const
 
 export default function ItemSort({
   activeSort,
 }: ItemSortProps) {
+  const t = useTranslations()
+
   return (
     <div className="flex gap-2">
       {options.map((option) => (
@@ -26,7 +32,7 @@ export default function ItemSort({
               : 'border-border bg-surface text-muted hover:text-foreground',
           ].join(' ')}
         >
-          {option.label}
+          {t(`filters.${option.key}`)}
         </Link>
       ))}
     </div>

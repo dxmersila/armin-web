@@ -1,3 +1,5 @@
+'use client'
+import { useTranslations } from '@/hooks/useTranslations'
 import type { Item } from '@/types/item'
 
 interface ItemMetaProps {
@@ -7,12 +9,14 @@ interface ItemMetaProps {
 export default function ItemMeta({
   item,
 }: ItemMetaProps) {
+  const t = useTranslations()
+
   return (
     <section className="rounded-2xl border border-border bg-surface p-5">
       {item.categories.length > 0 && (
         <div>
           <h2 className="text-sm font-semibold text-foreground">
-            Category
+            {t('item.category')}
           </h2>
 
           <div className="mt-3 flex flex-wrap gap-2">
@@ -31,7 +35,7 @@ export default function ItemMeta({
       {item.tags.length > 0 && (
         <div className={item.categories.length > 0 ? 'mt-6' : ''}>
           <h2 className="text-sm font-semibold text-foreground">
-            Tags
+            {t('item.tags')}
           </h2>
 
           <div className="mt-3 flex flex-wrap gap-2">

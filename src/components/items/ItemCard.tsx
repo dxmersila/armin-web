@@ -1,18 +1,29 @@
+'use client'
+
 import Link from 'next/link'
 import { BadgeDollarSign, CircleCheck } from 'lucide-react'
 
 import type { Item } from '@/types/item'
+import { useLocale } from '@/hooks/useLocale'
+import { useTranslations } from '@/hooks/useTranslations'
 
 interface ItemCardProps {
   item: Item
 }
 
 export default function ItemCard({ item }: ItemCardProps) {
+  const t = useTranslations()
+  const { locale } = useLocale()
+
   const primaryMedia =
     item.media.find((media) => media.is_primary) ??
     item.media[0]
 
   const isFree = item.access_type === 'free'
+
+  const formattedPrice = new Intl.NumberFormat(
+    locale === 'fa' ? 'fa-IR' : 'en-US',
+  ).format(item.price)
 
   return (
     <article className="group min-w-0">
@@ -28,7 +39,7 @@ export default function ItemCard({ item }: ItemCardProps) {
             </div>
           ) : (
             <div className="flex aspect-square items-center justify-center text-xs text-muted">
-              No image
+              {t('home.noImage')}
             </div>
           )}
         </div>
@@ -50,19 +61,19 @@ export default function ItemCard({ item }: ItemCardProps) {
               {isFree ? (
                 <>
                   <CircleCheck className="size-3.5" />
-                  Free
+                  {t('item.free')}
                 </>
               ) : (
                 <>
                   <BadgeDollarSign className="size-3.5" />
-                  Paid
+                  {t('item.paid')}
                 </>
               )}
             </span>
 
             {!isFree && (
               <span className="text-sm font-semibold tabular-nums text-foreground">
-                {item.price.toLocaleString('en-US')} T
+                {formattedPrice} {t('item.toman')}
               </span>
             )}
           </div>

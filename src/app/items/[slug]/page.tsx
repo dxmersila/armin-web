@@ -31,7 +31,7 @@ export default async function ItemDetailPage({
       <Breadcrumbs
         items={[
           {
-            label: 'Items',
+            label: 'common.items',
             href: '/items',
           },
           {

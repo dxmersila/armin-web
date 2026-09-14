@@ -1,7 +1,7 @@
 {
   "common": {
     "appName": "آرمین",
-    "items": "آیتم‌ها",
+    "items": "محصولات",
     "login": "ورود",
     "account": "حساب کاربری",
     "logout": "خروج",
@@ -13,7 +13,7 @@
     "guest": "مهمان"
   },
   "navigation": {
-    "items": "آیتم‌ها",
+    "items": "محصولات",
     "categories": "دسته‌بندی‌ها",
     "search": "جستجوی مارکت‌پلیس"
   },
@@ -60,5 +60,23 @@
     "title": "حساب کاربری",
     "profile": "پروفایل",
     "email": "ایمیل"
+  },
+  "item": {
+    "free": "رایگان",
+    "paid": "پولی",
+    "freeProduct": "محصول رایگان",
+    "paidProduct": "محصول پولی",
+    "access": "دسترسی",
+    "getAccess": "دریافت دسترسی",
+    "buyNow": "خرید",
+    "toman": "تومان",
+    "category": "دسته‌بندی",
+    "tags": "تگ‌ها"
+  },
+  "filters": {
+    "all": "همه",
+    "latest": "جدیدترین",
+    "oldest": "قدیمی‌ترین",
+    "title": "عنوان"
   }
 }

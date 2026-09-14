@@ -1,7 +1,7 @@
 {
   "common": {
     "appName": "Armin",
-    "items": "Items",
+    "items": "Products",
     "login": "Login",
     "account": "Account",
     "logout": "Logout",
@@ -13,7 +13,7 @@
     "guest": "Guest"
   },
   "navigation": {
-    "items": "Items",
+    "items": "Products",
     "categories": "Categories",
     "search": "Search marketplace"
   },
@@ -60,5 +60,23 @@
     "title": "Account",
     "profile": "Profile",
     "email": "Email"
+  },
+  "item": {
+    "free": "Free",
+    "paid": "Paid",
+    "freeProduct": "Free Product",
+    "paidProduct": "Paid Product",
+    "access": "Access",
+    "getAccess": "Get Access",
+    "buyNow": "Buy",
+    "toman": "Toman",
+    "category": "Category",
+    "tags": "Tags"
+  },
+  "filters": {
+    "all": "All",
+    "latest": "Latest",
+    "oldest": "Oldest",
+    "title": "Title"
   }
 }

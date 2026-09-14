@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { ChevronRight } from 'lucide-react'
 
 import { useTranslations } from '@/hooks/useTranslations'
 
@@ -21,31 +22,43 @@ export default function Breadcrumbs({
   return (
     <nav
       aria-label={t('marketplace.breadcrumb')}
-      className="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted"
+      className="mb-8"
     >
-      {items.map((item, index) => (
-        <div
-          key={`${item.label}-${index}`}
-          className="flex items-center gap-2"
-        >
-          {item.href ? (
-            <Link
-              href={item.href}
-              className="transition hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ) : (
-            <span className="text-foreground">
-              {item.label}
-            </span>
-          )}
+      <ol className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface px-3 py-2 text-sm text-muted">
+        {items.map((item, index) => (
+          <li
+            key={`${
+  item.label.startsWith('common.')
+    ? t(item.label)
+    : item.label
+}-${index}`}
+            className="flex items-center gap-2"
+          >
+            {item.href ? (
+              <Link
+                href={item.href}
+                className="transition hover:text-foreground"
+              >
+                {item.label.startsWith('common.')
+                  ? t(item.label)
+                  : item.label}
+              </Link>
+            ) : (
+              <span className="max-w-[240px] truncate font-medium text-foreground">
+                {
+  item.label.startsWith('common.')
+    ? t(item.label)
+    : item.label
+}
+              </span>
+            )}
 
-          {index < items.length - 1 && (
-            <span>/</span>
-          )}
-        </div>
-      ))}
+            {index < items.length - 1 && (
+              <ChevronRight className="size-4 shrink-0 text-muted rtl:rotate-180" />
+            )}
+          </li>
+        ))}
+      </ol>
     </nav>
   )
 }

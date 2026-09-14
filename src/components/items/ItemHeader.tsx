@@ -1,6 +1,9 @@
+'use client'
+
 import { BadgeDollarSign, CircleCheck } from 'lucide-react'
 
 import type { Item } from '@/types/item'
+import { useTranslations } from '@/hooks/useTranslations'
 
 interface ItemHeaderProps {
   item: Item
@@ -9,6 +12,7 @@ interface ItemHeaderProps {
 export default function ItemHeader({
   item,
 }: ItemHeaderProps) {
+  const t = useTranslations()
   const isFree = item.access_type === 'free'
 
   return (
@@ -28,12 +32,12 @@ export default function ItemHeader({
         {isFree ? (
           <>
             <CircleCheck className="size-4" />
-            Free Product
+            {t('item.freeProduct')}
           </>
         ) : (
           <>
             <BadgeDollarSign className="size-4" />
-            Paid Product
+            {t('item.paidProduct')}
           </>
         )}
       </span>
