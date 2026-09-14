@@ -1,4 +1,8 @@
+'use client'
+
 import Link from 'next/link'
+
+import { useTranslations } from '@/hooks/useTranslations'
 
 interface ItemSearchProps {
   activeSearch?: string
@@ -7,6 +11,8 @@ interface ItemSearchProps {
 export default function ItemSearch({
   activeSearch,
 }: ItemSearchProps) {
+  const t = useTranslations()
+
   return (
     <form
       action="/items"
@@ -15,7 +21,7 @@ export default function ItemSearch({
       <input
         name="search"
         defaultValue={activeSearch}
-        placeholder="Search products..."
+        placeholder={t('marketplace.searchPlaceholder')}
         className="min-w-0 flex-1 rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-foreground/30"
       />
 
@@ -23,7 +29,7 @@ export default function ItemSearch({
         type="submit"
         className="rounded-lg bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-85"
       >
-        Search
+        {t('marketplace.search')}
       </button>
 
       {activeSearch && (
@@ -31,7 +37,7 @@ export default function ItemSearch({
           href="/items"
           className="rounded-lg border border-border px-4 py-2.5 text-sm font-medium text-muted transition hover:text-foreground"
         >
-          Clear
+          {t('marketplace.clear')}
         </Link>
       )}
     </form>

@@ -55,5 +55,10 @@
     "password": "Password",
     "loginFailed": "Login failed.",
     "loggingIn": "Logging in..."
+  },
+  "account": {
+    "title": "Account",
+    "profile": "Profile",
+    "email": "Email"
   }
 }

@@ -1,7 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 
 import ItemCard from '@/components/items/ItemCard'
 import type { Item } from '@/types/item'
+import { useTranslations } from '@/hooks/useTranslations'
 
 interface LatestItemsSectionProps {
   items: Item[]
@@ -10,16 +13,18 @@ interface LatestItemsSectionProps {
 export default function LatestItemsSection({
   items,
 }: LatestItemsSectionProps) {
+  const t = useTranslations()
+
   return (
     <section className="mt-20">
       <div className="flex items-end justify-between gap-4">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted">
-            Latest products
+            {t('home.latestProducts')}
           </p>
 
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-            Fresh from the marketplace
+            {t('home.freshFromMarketplace')}
           </h2>
         </div>
 
@@ -27,7 +32,7 @@ export default function LatestItemsSection({
           href="/items"
           className="shrink-0 text-sm font-medium text-muted transition hover:text-foreground"
         >
-          Explore all →
+          {t('home.exploreAll')} →
         </Link>
       </div>
 

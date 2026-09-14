@@ -2,11 +2,14 @@
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+
 import { useAuth } from '@/components/auth/AuthProvider'
+import { useTranslations } from '@/hooks/useTranslations'
 
 export default function AccountPage() {
   const router = useRouter()
   const { status, user } = useAuth()
+  const t = useTranslations()
 
   useEffect(() => {
     if (status === 'guest') {
@@ -20,9 +23,17 @@ export default function AccountPage() {
 
   return (
     <main className="p-6">
-      <h1 className="text-2xl font-semibold">حساب کاربری</h1>
-      <p className="mt-2">{user?.name}</p>
-      <p>{user?.email}</p>
+      <h1 className="text-2xl font-semibold">
+        {t('account.title')}
+      </h1>
+
+      <p className="mt-2">
+        {user?.name}
+      </p>
+
+      <p>
+        {user?.email}
+      </p>
     </main>
   )
 }

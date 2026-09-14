@@ -16,11 +16,11 @@ export default function NavigationLinks({
   return (
     <>
       <Link href="/items" onClick={onNavigate}>
-        {t('common.items')}
+        {t('navigation.items')}
       </Link>
 
       <Link href="/#categories" onClick={onNavigate}>
-        Categories
+        {t('navigation.categories')}
       </Link>
     </>
   )

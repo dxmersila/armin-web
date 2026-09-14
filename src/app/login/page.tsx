@@ -3,10 +3,12 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/components/auth/AuthProvider'
+import { useTranslations } from '@/hooks/useTranslations'
 
 export default function LoginPage() {
   const router = useRouter()
   const { login, status } = useAuth()
+  const t = useTranslations()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -28,7 +30,7 @@ export default function LoginPage() {
       await login({ email, password })
       router.push('/account')
     } catch {
-      setError('ورود ناموفق بود.')
+      setError(t('auth.loginFailed'))
     } finally {
       setIsSubmitting(false)
     }
@@ -44,10 +46,10 @@ export default function LoginPage() {
         onSubmit={handleSubmit}
         className="flex w-full max-w-md flex-col gap-4"
       >
-        <h1 className="text-2xl font-semibold">ورود</h1>
+        <h1 className="text-2xl font-semibold">{t('auth.login')}</h1>
 
         <label className="flex flex-col gap-2">
-          <span>ایمیل</span>
+          <span>{t('auth.email')}</span>
           <input
             type="email"
             value={email}
@@ -58,7 +60,7 @@ export default function LoginPage() {
         </label>
 
         <label className="flex flex-col gap-2">
-          <span>رمز عبور</span>
+          <span>{t('auth.password')}</span>
           <input
             type="password"
             value={password}
@@ -79,7 +81,7 @@ export default function LoginPage() {
           disabled={isSubmitting}
           className="rounded bg-black px-4 py-2 text-white disabled:opacity-50"
         >
-          {isSubmitting ? 'در حال ورود...' : 'ورود'}
+          {isSubmitting ? t('auth.loggingIn') : t('auth.login')}
         </button>
       </form>
     </main>

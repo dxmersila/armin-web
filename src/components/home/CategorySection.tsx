@@ -1,6 +1,9 @@
+'use client'
+
 import Link from 'next/link'
 
 import type { Category } from '@/types/category'
+import { useTranslations } from '@/hooks/useTranslations'
 
 interface CategorySectionProps {
   categories: Category[]
@@ -9,16 +12,18 @@ interface CategorySectionProps {
 export default function CategorySection({
   categories,
 }: CategorySectionProps) {
+  const t = useTranslations()
+
   return (
     <section id="categories" className="mt-16">
       <div className="flex items-center justify-between gap-4">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted">
-            Browse
+            {t('home.browse')}
           </p>
 
           <h2 className="mt-1 text-xl font-semibold tracking-tight text-foreground">
-            Categories
+            {t('home.categories')}
           </h2>
         </div>
 
@@ -26,7 +31,7 @@ export default function CategorySection({
           href="/items"
           className="text-sm font-medium text-muted transition hover:text-foreground"
         >
-          View all →
+          {t('home.viewAll')} →
         </Link>
       </div>
 

@@ -55,5 +55,10 @@
     "password": "رمز عبور",
     "loginFailed": "ورود ناموفق بود.",
     "loggingIn": "در حال ورود..."
+  },
+  "account": {
+    "title": "حساب کاربری",
+    "profile": "پروفایل",
+    "email": "ایمیل"
   }
 }

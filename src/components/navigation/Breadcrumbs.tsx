@@ -1,4 +1,8 @@
+'use client'
+
 import Link from 'next/link'
+
+import { useTranslations } from '@/hooks/useTranslations'
 
 interface BreadcrumbItem {
   label: string
@@ -12,9 +16,11 @@ interface BreadcrumbsProps {
 export default function Breadcrumbs({
   items,
 }: BreadcrumbsProps) {
+  const t = useTranslations()
+
   return (
     <nav
-      aria-label="Breadcrumb"
+      aria-label={t('marketplace.breadcrumb')}
       className="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted"
     >
       {items.map((item, index) => (
