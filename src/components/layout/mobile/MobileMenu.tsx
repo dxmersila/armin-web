@@ -1,7 +1,7 @@
 'use client'
 
 import { Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useTranslations } from '@/hooks/useTranslations'
 import NavigationLinks from '@/components/layout/NavigationLinks'
@@ -9,13 +9,57 @@ import UserMenu from '@/components/layout/UserMenu'
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+
   const t = useTranslations()
 
-  const closeMenu = () => setOpen(false)
+  const closeMenu = () => {
+    setOpen(false)
+  }
+
+  useEffect(() => {
+    if (!open) {
+      return
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target
+
+      if (!(target instanceof Node)) {
+        return
+      }
+
+      if (menuRef.current?.contains(target)) {
+        return
+      }
+
+      if (buttonRef.current?.contains(target)) {
+        return
+      }
+
+      closeMenu()
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeMenu()
+      }
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown)
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [open])
 
   return (
-    <div className="relative">
+    <>
       <button
+        ref={buttonRef}
         type="button"
         onClick={() => setOpen((value) => !value)}
         className="inline-flex size-10 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
@@ -36,16 +80,15 @@ export default function MobileMenu() {
 
       {open && (
         <>
-          <button
-            type="button"
-            aria-label={t('common.closeMenu')}
+          <div
             className="fixed inset-0 z-40 bg-black/40"
-            onClick={closeMenu}
+            aria-hidden="true"
           />
 
           <div
+            ref={menuRef}
             id="mobile-navigation"
-            className="absolute end-0 top-full z-50 mt-2 w-72 max-w-[calc(100vw-1rem)] border border-border bg-surface p-3 shadow-xl"
+            className="fixed inset-s-0 top-14 z-50 w-80 max-w-[calc(100vw-1rem)] border border-border bg-surface p-4 shadow-xl"
           >
             <nav className="flex flex-col text-start">
               <div className="flex flex-col gap-1">
@@ -59,6 +102,6 @@ export default function MobileMenu() {
           </div>
         </>
       )}
-    </div>
+    </>
   )
 }
