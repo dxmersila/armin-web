@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-16">
-      <HeroSection />
+      <HeroSection items={latestItems.slice(0, 3)} />
 
       {categories.length > 0 && (
         <CategorySection categories={categories} />
