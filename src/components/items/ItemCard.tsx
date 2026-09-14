@@ -33,12 +33,12 @@ export default function ItemCard({ item }: ItemCardProps) {
           )}
         </div>
 
-        <div className="mt-3 space-y-2 px-0.5">
+        <div className="mt-3 px-0.5">
           <h3 className="line-clamp-2 min-h-10 text-sm font-medium leading-5 text-foreground transition group-hover:text-muted">
             {item.title}
           </h3>
 
-          <div className="flex items-center justify-between gap-3">
+          <div className="mt-2.5 flex items-center justify-between gap-3">
             <span
               className={[
                 'inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium',
@@ -61,7 +61,7 @@ export default function ItemCard({ item }: ItemCardProps) {
             </span>
 
             {!isFree && (
-              <span className="text-sm font-semibold text-foreground">
+              <span className="text-sm font-semibold tabular-nums text-foreground">
                 {item.price.toLocaleString('en-US')}
               </span>
             )}
