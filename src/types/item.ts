@@ -35,6 +35,7 @@ export interface Item {
   description: string | null
   is_visible: boolean
   access_type: ItemAccessType
+  price: number
   categories: ItemCategory[]
   tags: ItemTag[]
   media: ItemMedia[]
