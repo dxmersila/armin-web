@@ -9,6 +9,51 @@
     "switchToDark": "تغییر به حالت تاریک",
     "changeLanguage": "تغییر زبان",
     "toggleMenu": "باز کردن منو",
-    "closeMenu": "بستن منو"
+    "closeMenu": "بستن منو",
+    "guest": "مهمان"
+  },
+  "navigation": {
+    "items": "آیتم‌ها",
+    "categories": "دسته‌بندی‌ها",
+    "search": "جستجوی مارکت‌پلیس"
+  },
+  "home": {
+    "badge": "مارکت‌پلیس محصولات دیجیتال",
+    "title": "با محصولات دیجیتال بهتر، سریع‌تر بسازید.",
+    "description": "تمپلیت‌ها، دارایی‌ها و منابعی را پیدا کنید که برای سازندگان، توسعه‌دهندگان و تیم‌های مدرن ساخته شده‌اند.",
+    "exploreMarketplace": "مشاهده مارکت‌پلیس",
+    "browse": "مرور",
+    "categories": "دسته‌بندی‌ها",
+    "viewAll": "مشاهده همه",
+    "latestProducts": "جدیدترین محصولات",
+    "freshFromMarketplace": "تازه از مارکت‌پلیس",
+    "exploreAll": "مشاهده همه",
+    "noImage": "بدون تصویر"
+  },
+  "marketplace": {
+    "searchPlaceholder": "جستجوی محصولات...",
+    "search": "جستجو",
+    "clear": "پاک کردن",
+    "exploreMarketplace": "مشاهده مارکت‌پلیس",
+    "exploreProducts": "محصولات",
+    "description": "محصولات دیجیتال، تمپلیت‌ها و منابع را پیدا کنید.",
+    "breadcrumb": "مسیر صفحه"
+  },
+  "footer": {
+    "marketplace": "مارکت‌پلیس",
+    "account": "حساب کاربری",
+    "description": "محصولات دیجیتال برای سازندگان، توسعه‌دهندگان و تیم‌های مدرن.",
+    "ctaTitle": "چیزی را پیدا کنید که ارزش ساختن دارد.",
+    "ctaDescription": "محصولات دیجیتال مارکت‌پلیس را بررسی کنید.",
+    "ctaButton": "مشاهده مارکت‌پلیس",
+    "builtForCreators": "ساخته‌شده برای سازندگان.",
+    "allRightsReserved": "تمامی حقوق محفوظ است."
+  },
+  "auth": {
+    "login": "ورود",
+    "email": "ایمیل",
+    "password": "رمز عبور",
+    "loginFailed": "ورود ناموفق بود.",
+    "loggingIn": "در حال ورود..."
   }
 }

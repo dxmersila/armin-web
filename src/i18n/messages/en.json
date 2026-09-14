@@ -9,6 +9,51 @@
     "switchToDark": "Switch to dark mode",
     "changeLanguage": "Change language",
     "toggleMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "guest": "Guest"
+  },
+  "navigation": {
+    "items": "Items",
+    "categories": "Categories",
+    "search": "Search marketplace"
+  },
+  "home": {
+    "badge": "Digital Product Marketplace",
+    "title": "Build faster with better digital products.",
+    "description": "Discover templates, assets, and resources made for creators, developers, and modern teams.",
+    "exploreMarketplace": "Explore Marketplace",
+    "browse": "Browse",
+    "categories": "Categories",
+    "viewAll": "View all",
+    "latestProducts": "Latest products",
+    "freshFromMarketplace": "Fresh from the marketplace",
+    "exploreAll": "Explore all",
+    "noImage": "No image"
+  },
+  "marketplace": {
+    "searchPlaceholder": "Search products...",
+    "search": "Search",
+    "clear": "Clear",
+    "exploreMarketplace": "Explore Marketplace",
+    "exploreProducts": "Explore Products",
+    "description": "Discover digital products, templates, and resources.",
+    "breadcrumb": "Breadcrumb"
+  },
+  "footer": {
+    "marketplace": "Marketplace",
+    "account": "Account",
+    "description": "Digital products for creators, developers, and modern teams.",
+    "ctaTitle": "Discover something worth building.",
+    "ctaDescription": "Explore digital products from the marketplace.",
+    "ctaButton": "Explore marketplace",
+    "builtForCreators": "Built for creators.",
+    "allRightsReserved": "All rights reserved."
+  },
+  "auth": {
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "loginFailed": "Login failed.",
+    "loggingIn": "Logging in..."
   }
 }
