@@ -11,27 +11,27 @@ export default function LatestItemsSection({
   items,
 }: LatestItemsSectionProps) {
   return (
-    <section className="mt-16">
+    <section className="mt-20">
       <div className="flex items-end justify-between gap-4">
         <div>
-          <p className="text-sm text-muted">
-            Recently added
+          <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted">
+            Latest products
           </p>
 
-          <h2 className="mt-1 text-lg font-semibold text-foreground sm:text-xl">
-            Latest items
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            Fresh from the marketplace
           </h2>
         </div>
 
         <Link
           href="/items"
-          className="text-sm font-medium text-muted transition hover:text-foreground"
+          className="shrink-0 text-sm font-medium text-muted transition hover:text-foreground"
         >
-          Explore more
+          Explore all →
         </Link>
       </div>
 
-      <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="mt-8 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
         {items.map((item) => (
           <ItemCard
             key={item.id}
