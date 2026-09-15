@@ -37,7 +37,9 @@
     "exploreMarketplace": "مشاهده مارکت‌پلیس",
     "exploreProducts": "محصولات",
     "description": "محصولات دیجیتال، تمپلیت‌ها و منابع را پیدا کنید.",
-    "breadcrumb": "مسیر صفحه"
+    "breadcrumb": "مسیر صفحه",
+    "noItemsFound": "محصولی پیدا نشد",
+    "tryChangingSearch": "جستجو یا فیلترهای خود را تغییر دهید."
   },
   "footer": {
     "marketplace": "مارکت‌پلیس",
@@ -77,6 +79,8 @@
     "all": "همه",
     "latest": "جدیدترین",
     "oldest": "قدیمی‌ترین",
-    "title": "عنوان"
+    "category": "دسته‌بندی",
+    "moreCategories": "بیشتر",
+    "sort": "مرتب‌سازی"
   }
 }

@@ -47,3 +47,25 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+.dropdown-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}

@@ -1,17 +1,16 @@
 'use client'
 
 import Link from 'next/link'
-
+import { ArrowDown, ArrowUp } from 'lucide-react'
 import { useTranslations } from '@/hooks/useTranslations'
 
 interface ItemSortProps {
-  activeSort?: 'latest' | 'oldest' | 'title'
+  activeSort?: 'latest' | 'oldest'
 }
 
 const options = [
-  { key: 'latest', value: 'latest' },
-  { key: 'oldest', value: 'oldest' },
-  { key: 'title', value: 'title' },
+  { key: 'latest', value: 'latest', icon: ArrowDown },
+  { key: 'oldest', value: 'oldest', icon: ArrowUp },
 ] as const
 
 export default function ItemSort({
@@ -20,19 +19,22 @@ export default function ItemSort({
   const t = useTranslations()
 
   return (
-    <div className="flex gap-2">
+    <div className="flex w-full min-w-0 items-center rounded-xl border border-border bg-surface p-1 sm:w-fit">
       {options.map((option) => (
         <Link
           key={option.value}
           href={`/items?sort=${option.value}`}
           className={[
-            'rounded-lg border px-3 py-2 text-sm font-medium transition',
+            'min-w-0 flex-1 shrink rounded-lg px-3 py-1.5 text-sm font-medium text-center transition whitespace-nowrap',
             activeSort === option.value
-              ? 'border-foreground bg-foreground text-background'
-              : 'border-border bg-surface text-muted hover:text-foreground',
+              ? 'bg-foreground text-background'
+              : 'text-muted hover:bg-surface-muted hover:text-foreground',
           ].join(' ')}
         >
-          {t(`filters.${option.key}`)}
+          <div className="flex items-center justify-center gap-1">
+            <option.icon className="size-3.5" />
+            <span>{t(`filters.${option.key}`)}</span>
+          </div>
         </Link>
       ))}
     </div>

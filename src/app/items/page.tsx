@@ -10,7 +10,7 @@ interface ItemsPageProps {
   searchParams: Promise<{
     category?: string
     search?: string
-    sort?: 'latest' | 'oldest' | 'title'
+    sort?: 'latest' | 'oldest'
   }>
 }
 
@@ -32,17 +32,21 @@ export default async function ItemsPage({
     <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-14">
       <ItemsHeader />
 
-      <section className="mt-8">
-        <div className="flex flex-col gap-5">
-          <ItemSearch activeSearch={params.search} />
+      <section className="mt-8 rounded-2xl border border-border bg-surface/70 p-4 shadow-sm sm:p-5">
+        <ItemSearch activeSearch={params.search} />
 
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <ItemFilters
-              categories={categoriesResponse.data}
-              activeCategory={params.category}
-            />
+        <div className="mt-5 border-t border-border pt-5">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+            <div className="min-w-0">
+              <ItemFilters
+                categories={categoriesResponse.data}
+                activeCategory={params.category}
+              />
+            </div>
 
-            <ItemSort activeSort={params.sort} />
+            <div className="min-w-0">
+              <ItemSort activeSort={params.sort} />
+            </div>
           </div>
         </div>
       </section>
@@ -50,9 +54,9 @@ export default async function ItemsPage({
       {response.data.length > 0 ? (
         <ItemGrid items={response.data} />
       ) : (
-        <section className="border border-border bg-surface p-10 text-center">
+        <section className="mt-8 rounded-2xl border border-border bg-surface px-6 py-14 text-center sm:px-10">
           <h2 className="text-lg font-semibold text-foreground">
-            No items found
+            No products found
           </h2>
 
           <p className="mt-2 text-sm text-muted">

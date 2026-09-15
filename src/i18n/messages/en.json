@@ -37,7 +37,9 @@
     "exploreMarketplace": "Explore Marketplace",
     "exploreProducts": "Explore Products",
     "description": "Discover digital products, templates, and resources.",
-    "breadcrumb": "Breadcrumb"
+    "breadcrumb": "Breadcrumb",
+    "noItemsFound": "No products found",
+    "tryChangingSearch": "Try changing your search or filters."
   },
   "footer": {
     "marketplace": "Marketplace",
@@ -77,6 +79,8 @@
     "all": "All",
     "latest": "Latest",
     "oldest": "Oldest",
-    "title": "Title"
+    "category": "Category",
+    "moreCategories": "More",
+    "sort": "Sort"
   }
 }
