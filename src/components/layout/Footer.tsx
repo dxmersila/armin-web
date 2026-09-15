@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 import UserMenu from '@/components/layout/UserMenu'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -11,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="mt-24 border-t border-border">
       <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:py-16">
-        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr] md:gap-8">
+        <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr] lg:gap-8">
           <div className="max-w-sm">
             <Link
               href="/"
@@ -25,35 +26,45 @@ export default function Footer() {
             </p>
           </div>
 
-          <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
-              {t('footer.marketplace')}
-            </h2>
+          <div className="grid gap-10 md:grid-cols-2 lg:contents">
+            <div className="md:order-2 lg:order-none">
+              <h2 className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                <span
+                  aria-hidden="true"
+                  className="size-1.5 rounded-full bg-foreground/40"
+                />
+                {t('footer.marketplace')}
+              </h2>
 
-            <nav className="mt-4 flex flex-col gap-3 text-sm">
-              <Link
-                href="/items"
-                className="text-muted transition hover:text-foreground"
-              >
-                {t('common.items')}
-              </Link>
+              <nav className="mt-4 flex flex-col gap-3 text-sm">
+                <Link
+                  href="/items"
+                  className="text-muted transition hover:text-foreground"
+                >
+                  {t('common.items')}
+                </Link>
 
-              <Link
-                href="/#categories"
-                className="text-muted transition hover:text-foreground"
-              >
-                {t('home.categories')}
-              </Link>
-            </nav>
-          </div>
+                <Link
+                  href="/#categories"
+                  className="text-muted transition hover:text-foreground"
+                >
+                  {t('home.categories')}
+                </Link>
+              </nav>
+            </div>
 
-          <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
-              {t('footer.account')}
-            </h2>
+            <div className="md:order-1 lg:order-none">
+              <h2 className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                <span
+                  aria-hidden="true"
+                  className="size-1.5 rounded-full bg-foreground/40"
+                />
+                {t('footer.account')}
+              </h2>
 
-            <div className="mt-4">
-              <UserMenu />
+              <div className="mt-4">
+                <UserMenu />
+              </div>
             </div>
           </div>
         </div>
@@ -73,14 +84,15 @@ export default function Footer() {
             href="/items"
             className="mt-4 inline-flex shrink-0 items-center justify-center rounded-lg bg-foreground px-4 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-85 md:mt-0"
           >
-            {t('footer.ctaButton')} →
+            {t('footer.ctaButton')}
+            <ArrowRight className="ms-2 size-4 rtl:rotate-180" />
           </Link>
         </div>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {t('common.appName')}.{' '}
-            {t('footer.allRightsReserved')}.
+            {t('footer.allRightsReserved')}
           </p>
 
           <p>

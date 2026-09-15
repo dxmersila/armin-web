@@ -1,5 +1,7 @@
 'use client'
 
+import { Globe } from 'lucide-react'
+
 import {
   locales,
   type Locale,
@@ -24,9 +26,10 @@ export default function LanguageSwitcher() {
     <button
       type="button"
       onClick={handleChange}
-      className="rounded-lg border px-3 py-2 text-sm transition"
+      className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm text-muted transition hover:bg-surface-muted hover:text-foreground"
       aria-label={t('common.changeLanguage')}
     >
+      <Globe className="size-4" />
       {locale.toUpperCase()}
     </button>
   )
