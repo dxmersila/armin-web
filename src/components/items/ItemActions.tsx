@@ -57,7 +57,7 @@ export default function ItemActions({
         ) : (
           <>
             {t('item.buyNow')}
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-4 rtl:rotate-180" />
           </>
         )}
       </button>

@@ -73,7 +73,8 @@
     "buyNow": "Buy",
     "toman": "Toman",
     "category": "Category",
-    "tags": "Tags"
+    "tags": "Tags",
+    "noImage": "No image available"
   },
   "filters": {
     "all": "All",
