@@ -23,7 +23,7 @@ export default function CategorySection({
             {t('home.browse')}
           </p>
 
-          <h2 className="mt-1 text-xl font-semibold tracking-tight text-foreground">
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
             {t('home.categories')}
           </h2>
         </div>
