@@ -61,7 +61,10 @@
   "account": {
     "title": "Account",
     "profile": "Profile",
-    "email": "Email"
+    "email": "Email",
+    "description": "Manage your account",
+    "name": "Name",
+    "logout": "Log out"
   },
   "item": {
     "free": "Free",
