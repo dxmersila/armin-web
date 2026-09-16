@@ -22,7 +22,7 @@ export default function ItemActions({
   ).format(item.price)
 
   return (
-    <section className="rounded-2xl border border-border bg-surface p-5">
+    <section className="border-t border-border pt-6">
       <div className="mb-4 flex items-center justify-between">
         <span className="text-sm text-muted">
           {t('item.access')}

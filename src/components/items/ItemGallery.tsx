@@ -14,7 +14,7 @@ export default function ItemGallery({
     item.media[0]
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
+    <div className="overflow-hidden">
       {primaryMedia ? (
         <div className="aspect-[16/10] overflow-hidden">
           <img

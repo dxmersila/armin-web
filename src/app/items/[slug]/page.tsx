@@ -40,24 +40,33 @@ export default async function ItemDetailPage({
         ]}
       />
 
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(320px,0.8fr)]">
-        <section>
-          <ItemGallery item={item} />
-        </section>
+      <div className="overflow-hidden rounded-3xl border border-border bg-surface">
+        <div className="grid lg:grid-cols-[minmax(0,1.45fr)_minmax(340px,0.8fr)]">
+          <section className="min-w-0">
+            <ItemGallery item={item} />
+          </section>
 
-        <aside className="space-y-8">
-          <ItemHeader item={item} />
+          <aside className="min-w-0 border-t border-border lg:border-s lg:border-t-0">
+            <div className="space-y-7 p-6 sm:p-8 lg:p-9">
+              <ItemHeader item={item} />
+              <ItemActions item={item} />
+            </div>
+          </aside>
+        </div>
 
-          {item.description && (
-            <p className="text-sm leading-7 text-muted sm:text-base">
+        {item.description && (
+          <section className="border-t border-border px-6 py-7 sm:px-8 sm:py-8 lg:px-9 lg:py-9">
+            <p className="max-w-4xl text-sm leading-7 text-muted sm:text-base">
               {item.description}
             </p>
-          )}
+          </section>
+        )}
 
-          <ItemMeta item={item} />
-
-          <ItemActions item={item} />
-        </aside>
+        {(item.categories.length > 0 || item.tags.length > 0) && (
+          <section className="border-t border-border px-6 py-7 sm:px-8 sm:py-8 lg:px-9 lg:py-9">
+            <ItemMeta item={item} />
+          </section>
+        )}
       </div>
     </main>
   )

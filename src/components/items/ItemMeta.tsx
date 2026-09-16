@@ -12,7 +12,7 @@ export default function ItemMeta({
   const t = useTranslations()
 
   return (
-    <section className="rounded-2xl border border-border bg-surface p-5">
+    <section>
       {item.categories.length > 0 && (
         <div>
           <h2 className="text-sm font-semibold text-foreground">
