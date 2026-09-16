@@ -82,7 +82,7 @@ export default function Footer() {
 
           <Link
             href="/items"
-            className="mt-4 inline-flex shrink-0 items-center justify-center rounded-lg bg-foreground px-4 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-85 md:mt-0"
+            className="mt-4 inline-flex shrink-0 items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85 md:mt-0"
           >
             {t('footer.ctaButton')}
             <ArrowRight className="ms-2 size-4 rtl:rotate-180" />

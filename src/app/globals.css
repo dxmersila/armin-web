@@ -2,22 +2,39 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #f6f7f9;
-  --foreground: #18181b;
+  --background: #fafafa;
+  --foreground: #181622;
+
   --surface: #ffffff;
-  --surface-muted: #f4f4f5;
-  --border: #e4e4e7;
-  --muted: #71717a;
+  --surface-muted: #f1eff8;
+  --border: #e4e1ec;
+  --muted: #716d7d;
+
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+  --secondary: #a855f7;
+  --secondary-foreground: #ffffff;
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+
   --font-family-sans: "Vazirmatn Variable", sans-serif;
 }
 
 .dark {
-  --background: #09090b;
-  --foreground: #f4f4f5;
-  --surface: #111113;
-  --surface-muted: #18181b;
-  --border: #27272a;
-  --muted: #a1a1aa;
+  --background: #0a0b10;
+  --foreground: #f5f3ff;
+
+  --surface: #11131a;
+  --surface-muted: #181a24;
+  --border: #292b38;
+  --muted: #a1a1b2;
+
+  --primary: #8b5cf6;
+  --primary-foreground: #ffffff;
+  --secondary: #a855f7;
+  --secondary-foreground: #ffffff;
+  --success: #22c55e;
+  --success-foreground: #ffffff;
 }
 
 @theme inline {
@@ -27,6 +44,12 @@
   --color-surface-muted: var(--surface-muted);
   --color-border: var(--border);
   --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
   --font-sans: var(--font-family-sans);
 }
 

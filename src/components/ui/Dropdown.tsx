@@ -75,7 +75,7 @@ export default function Dropdown({
         type="button"
         aria-expanded={open}
         onClick={() => setOpen((current) => !current)}
-        className="flex h-11 w-full items-center gap-3 rounded-xl border border-border bg-surface px-3.5 text-sm font-medium text-foreground outline-none transition hover:border-foreground/20 focus:border-foreground/30 focus:ring-4 focus:ring-foreground/5"
+        className="flex h-11 w-full items-center gap-3 rounded-xl border border-border bg-surface px-3.5 text-sm font-medium text-foreground outline-none transition hover:border-foreground/20 focus:border-primary focus:ring-4 focus:ring-primary/15"
       >
         {icon && (
           <span className="shrink-0 text-muted">
@@ -112,7 +112,7 @@ export default function Dropdown({
                   className={[
                     'flex w-full items-center rounded-lg px-3 py-2.5 text-start text-sm transition',
                     selected
-                      ? 'bg-foreground text-background'
+                      ? 'bg-primary text-primary-foreground'
                       : 'text-foreground hover:bg-surface-muted',
                   ].join(' ')}
                 >

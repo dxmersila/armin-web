@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 import ItemCard from '@/components/items/ItemCard'
 import type { Item } from '@/types/item'
@@ -30,9 +31,10 @@ export default function LatestItemsSection({
 
         <Link
           href="/items"
-          className="shrink-0 text-sm font-medium text-muted transition hover:text-foreground"
+          className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-muted transition hover:text-foreground"
         >
-          {t('home.exploreAll')} →
+          <span>{t('home.exploreAll')}</span>
+          <ArrowRight className="size-4 rtl:rotate-180" aria-hidden="true" />
         </Link>
       </div>
 

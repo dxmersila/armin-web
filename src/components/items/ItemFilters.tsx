@@ -69,7 +69,7 @@ export default function ItemFilters({
           className={[
             'shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition',
             !activeCategory
-              ? 'border-foreground bg-foreground text-background'
+              ? 'border-primary bg-primary text-primary-foreground'
               : 'border-border bg-surface text-muted hover:border-foreground/20 hover:text-foreground',
           ].join(' ')}
         >
@@ -83,7 +83,7 @@ export default function ItemFilters({
             className={[
               'shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition',
               activeCategory === category.slug
-                ? 'border-foreground bg-foreground text-background'
+                ? 'border-primary bg-primary text-primary-foreground'
                 : 'border-border bg-surface text-muted hover:border-foreground/20 hover:text-foreground',
             ].join(' ')}
           >

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 
 import type { Category } from '@/types/category'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -30,9 +30,10 @@ export default function CategorySection({
 
         <Link
           href="/items"
-          className="shrink-0 text-sm font-medium text-muted transition hover:text-foreground"
+          className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-muted transition hover:text-foreground"
         >
-          {t('home.viewAll')} →
+          <span>{t('home.viewAll')}</span>
+          <ArrowRight className="size-4 rtl:rotate-180" aria-hidden="true" />
         </Link>
       </div>
 
@@ -41,9 +42,9 @@ export default function CategorySection({
           <Link
             key={category.id}
             href={`/items?category=${category.slug}`}
-            className="group flex h-14 w-44 shrink-0 items-center justify-between rounded-xl border border-border bg-surface px-4 transition hover:border-foreground/20 hover:bg-surface-muted"
+            className="group flex h-14 w-44 shrink-0 items-center justify-between rounded-xl border border-border bg-surface px-4 transition duration-200 hover:border-primary/30 hover:bg-primary/5"
           >
-            <ArrowUpRight className="size-4 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 rtl:rotate-[-90deg] rtl:group-hover:-translate-y-0.5 rtl:group-hover:-translate-x-0.5" />
+            <ArrowUpRight className="size-4 text-muted transition-colors duration-200 group-hover:text-primary rtl:scale-x-[-1]" />
 
             <span className="text-base font-semibold text-foreground">
               {category.name}

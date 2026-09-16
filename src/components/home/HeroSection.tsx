@@ -16,12 +16,12 @@ export default function HeroSection({
   const showcaseItems = items.slice(0, 3)
 
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-border bg-surface">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(255,255,255,0.08),transparent_35%)]" />
+    <section className="relative overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_20px_70px_-45px_rgba(124,58,237,0.55)]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_15%,rgba(124,58,237,0.16),transparent_34%),radial-gradient(circle_at_20%_90%,rgba(168,85,247,0.07),transparent_28%)]" />
 
       <div className="relative grid gap-12 px-6 py-12 sm:px-10 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-14 lg:py-20">
         <div className="max-w-xl">
-          <span className="inline-flex items-center rounded-full border border-border bg-surface-muted/60 px-3.5 py-1.5 text-xs font-medium text-muted">
+          <span className="inline-flex items-center rounded-full border border-secondary/20 bg-secondary/10 px-3.5 py-1.5 text-xs font-medium text-secondary">
             {t('home.badge')}
           </span>
 
@@ -36,7 +36,7 @@ export default function HeroSection({
           <div className="mt-8">
             <Link
               href="/items"
-              className="inline-flex items-center justify-center rounded-xl bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-85"
+              className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85"
             >
               {t('home.exploreMarketplace')}
             </Link>

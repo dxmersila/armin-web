@@ -26,14 +26,14 @@ export default function ItemSearch({
           name="search"
           defaultValue={activeSearch}
           placeholder={t('marketplace.searchPlaceholder')}
-          className="h-12 w-full rounded-xl border border-border bg-background ps-11 pe-4 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-foreground/30 focus:ring-4 focus:ring-foreground/5"
+          className="h-12 w-full rounded-xl border border-border bg-background ps-11 pe-4 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-primary focus:ring-4 focus:ring-primary/15"
         />
       </div>
 
       <div className="flex gap-2">
         <button
           type="submit"
-          className="inline-flex h-12 flex-1 items-center justify-center rounded-xl bg-foreground px-5 text-sm font-medium text-background transition-opacity hover:opacity-85 sm:flex-none"
+          className="inline-flex h-12 flex-1 items-center justify-center rounded-xl bg-primary px-5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85 sm:flex-none"
         >
           {t('marketplace.search')}
         </button>

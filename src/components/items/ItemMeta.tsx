@@ -23,7 +23,7 @@ export default function ItemMeta({
             {item.categories.map((category) => (
               <span
                 key={category.id}
-                className="rounded-full bg-foreground px-3 py-1.5 text-sm font-medium text-background"
+                className="rounded-full bg-secondary/10 px-3 py-1.5 text-sm font-medium text-secondary"
               >
                 {category.name}
               </span>

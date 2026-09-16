@@ -79,7 +79,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="rounded bg-black px-4 py-2 text-white disabled:opacity-50"
+          className="rounded bg-primary px-4 py-2 text-primary-foreground disabled:opacity-50"
         >
           {isSubmitting ? t('auth.loggingIn') : t('auth.login')}
         </button>

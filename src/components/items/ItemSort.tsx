@@ -27,7 +27,7 @@ export default function ItemSort({
           className={[
             'min-w-0 flex-1 shrink rounded-lg px-3 py-1.5 text-sm font-medium text-center transition whitespace-nowrap',
             activeSort === option.value
-              ? 'bg-foreground text-background'
+              ? 'bg-primary text-primary-foreground'
               : 'text-muted hover:bg-surface-muted hover:text-foreground',
           ].join(' ')}
         >

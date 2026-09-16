@@ -25,8 +25,8 @@ export default function ItemHeader({
         className={[
           'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium',
           isFree
-            ? 'bg-blue-500/10 text-blue-600 dark:text-blue-400'
-            : 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+            ? 'bg-success/10 text-success'
+            : 'bg-secondary/10 text-secondary',
         ].join(' ')}
       >
         {isFree ? (
