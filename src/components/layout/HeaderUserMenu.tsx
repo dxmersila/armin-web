@@ -51,7 +51,7 @@ export default function HeaderUserMenu() {
         title={t('common.logout')}
         className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-lg text-muted transition hover:bg-surface-muted hover:text-foreground"
       >
-        <LogOut className="size-4" />
+        <LogOut className="size-4 ltr:rotate-180" />
       </button>
     </div>
   )

@@ -88,14 +88,14 @@ export default function MobileMenu() {
           <div
             ref={menuRef}
             id="mobile-navigation"
-            className="fixed inset-s-0 top-14 z-50 w-80 max-w-[calc(100vw-1rem)] border border-border bg-surface p-4 shadow-xl"
+            className="fixed inset-s-0 top-14 z-50 w-80 max-w-[calc(100vw-1rem)] rounded-e-2xl border border-border bg-surface p-4 shadow-[0_20px_50px_-25px_rgba(0,0,0,0.5)]"
           >
             <nav className="flex flex-col text-start">
               <div className="flex flex-col gap-1">
-                <NavigationLinks onNavigate={closeMenu} />
+                <NavigationLinks onNavigate={closeMenu} mobile />
               </div>
 
-              <div className="my-3 border-t border-border" />
+              <div className="my-4 border-t border-border" />
 
               <UserMenu onNavigate={closeMenu} />
             </nav>

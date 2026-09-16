@@ -78,7 +78,7 @@ export default function UserMenu({
         className="mt-1 flex cursor-pointer items-center gap-2 text-xs font-medium text-muted transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
       >
         <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-muted">
-          <LogOut className="size-4" />
+          <LogOut className="size-4 rtl:rotate-180" />
         </span>
 
         <span>{t('common.logout')}</span>
