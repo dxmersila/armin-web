@@ -189,17 +189,13 @@ export default function CartPage() {
               </div>
             </div>
 
-            <button
-              type="button"
-              disabled
-              className="mt-6 flex h-12 w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground opacity-50"
+            <Link
+              href="/checkout"
+              className="mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:opacity-90"
             >
               {t('cart.checkout')}
-            </button>
-
-            <p className="mt-3 text-center text-xs leading-5 text-muted">
-              {t('cart.checkoutComingSoon')}
-            </p>
+              <ArrowRight className="size-4 rtl:rotate-180" />
+            </Link>
           </div>
         </aside>
       </div>

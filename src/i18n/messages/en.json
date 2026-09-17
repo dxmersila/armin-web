@@ -106,5 +106,19 @@
     "total": "Total",
     "checkout": "Continue to checkout",
     "checkoutComingSoon": "Checkout will be available in the next step."
+  },
+  "checkout": {
+    "title": "Checkout",
+    "description": "Review your products before placing the order.",
+    "products": "Products",
+    "summary": "Order summary",
+    "createOrder": "Place order",
+    "createOrderFailed": "We couldn't create your order. Please try again.",
+    "backToCart": "Back to cart",
+    "orderCreated": "Order created",
+    "orderCreatedDescription": "Your order has been created successfully. Payment is the next step.",
+    "orderNumber": "Order number",
+    "continuePayment": "Continue to payment",
+    "paymentComingSoon": "Payment will be connected in the next step."
   }
 }
