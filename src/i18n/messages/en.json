@@ -90,5 +90,8 @@
     "category": "Category",
     "moreCategories": "More",
     "sort": "Sort"
+  },
+  "cart": {
+    "title": "Cart"
   }
 }

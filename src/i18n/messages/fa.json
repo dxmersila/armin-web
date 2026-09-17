@@ -90,5 +90,8 @@
     "category": "دسته‌بندی",
     "moreCategories": "بیشتر",
     "sort": "مرتب‌سازی"
+  },
+  "cart": {
+    "title": "سبد خرید"
   }
 }
