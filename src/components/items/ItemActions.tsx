@@ -1,7 +1,14 @@
 'use client'
 
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { Check, LockOpen, ShoppingCart } from 'lucide-react'
+import {
+  ArrowRight,
+  Check,
+  LockOpen,
+  ShoppingCart,
+} from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 import type { Item } from '@/types/item'
 import { useAuth } from '@/components/auth/AuthProvider'
@@ -16,6 +23,7 @@ interface ItemActionsProps {
 }
 
 export default function ItemActions({ item }: ItemActionsProps) {
+  const router = useRouter()
   const t = useTranslations()
   const { locale } = useLocale()
   const { status } = useAuth()
@@ -102,42 +110,51 @@ export default function ItemActions({ item }: ItemActionsProps) {
         </div>
       )}
 
-      <button
-        type="button"
-        disabled={
-          isCheckingAccess ||
-          hasAccess ||
-          (!isFree && isInCart)
-        }
-        onClick={() => {
-          if (!hasAccess && !isFree && !isInCart) {
-            addItem(item)
-          }
-        }}
-        className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85 disabled:cursor-default disabled:opacity-70"
-      >
-        {hasAccess ? (
-          <>
-            <Check className="size-4" />
-            {t('item.access')}
-          </>
-        ) : isFree ? (
-          <>
-            <LockOpen className="size-4" />
-            {t('item.getAccess')}
-          </>
-        ) : isInCart ? (
-          <>
-            <Check className="size-4" />
-            {t('item.inCart')}
-          </>
-        ) : (
-          <>
-            <ShoppingCart className="size-4" />
-            {t('item.addToCart')}
-          </>
-        )}
-      </button>
+      {hasAccess ? (
+        <Link
+          href={`/items/${encodeURIComponent(item.slug)}/content`}
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85"
+        >
+          <LockOpen className="size-4" />
+          {t('item.access')}
+          <ArrowRight className="size-4 rtl:rotate-180" />
+        </Link>
+      ) : (
+        <button
+          type="button"
+          disabled={isCheckingAccess || (!isFree && isInCart)}
+          onClick={() => {
+            if (isFree) {
+              router.replace('/login')
+              return
+            }
+
+            if (!isInCart) {
+              addItem(item)
+            }
+          }}
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85 disabled:cursor-default disabled:opacity-70"
+        >
+          {isCheckingAccess ? (
+            <span>{t('item.access')}</span>
+          ) : isFree ? (
+            <>
+              <LockOpen className="size-4" />
+              {t('item.getAccess')}
+            </>
+          ) : isInCart ? (
+            <>
+              <Check className="size-4" />
+              {t('item.inCart')}
+            </>
+          ) : (
+            <>
+              <ShoppingCart className="size-4" />
+              {t('item.addToCart')}
+            </>
+          )}
+        </button>
+      )}
     </section>
   )
 }

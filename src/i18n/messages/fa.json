@@ -81,7 +81,13 @@
     "tags": "تگ‌ها",
     "noImage": "تصویری موجود نیست",
     "addToCart": "افزودن به سبد",
-    "inCart": "در سبد خرید"
+    "inCart": "در سبد خرید",
+    "loadingContent": "در حال بارگذاری محتوا",
+    "contentTitle": "محتوای شما",
+    "contentDescription": "این محتوا با دسترسی فعلی شما در دسترس است.",
+    "contentUnavailable": "محتوا در دسترس نیست",
+    "contentUnavailableDescription": "نتوانستیم محتوا را بارگذاری کنیم. ممکن است دسترسی شما دیگر فعال نباشد.",
+    "backToItem": "بازگشت به محصول"
   },
   "filters": {
     "all": "همه",

@@ -81,7 +81,13 @@
     "tags": "Tags",
     "noImage": "No image available",
     "addToCart": "Add to Cart",
-    "inCart": "In Cart"
+    "inCart": "In Cart",
+    "loadingContent": "Loading content",
+    "contentTitle": "Your Content",
+    "contentDescription": "This content is available with your current access.",
+    "contentUnavailable": "Content unavailable",
+    "contentUnavailableDescription": "We couldn't load this content. Your access may no longer be available.",
+    "backToItem": "Back to Product"
   },
   "filters": {
     "all": "All",
