@@ -56,7 +56,9 @@
     "email": "ایمیل",
     "password": "رمز عبور",
     "loginFailed": "ورود ناموفق بود.",
-    "loggingIn": "در حال ورود..."
+    "loggingIn": "در حال ورود...",
+    "loginDescription": "وارد حساب کاربری خود شوید",
+    "togglePassword": "نمایش یا مخفی کردن رمز عبور"
   },
   "account": {
     "title": "حساب کاربری",

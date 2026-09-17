@@ -56,7 +56,9 @@
     "email": "Email",
     "password": "Password",
     "loginFailed": "Login failed.",
-    "loggingIn": "Logging in..."
+    "loggingIn": "Logging in...",
+    "loginDescription": "Sign in to your account",
+    "togglePassword": "Show or hide password"
   },
   "account": {
     "title": "Account",

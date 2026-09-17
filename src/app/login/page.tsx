@@ -1,9 +1,12 @@
 'use client'
 
 import { FormEvent, useEffect, useState } from 'react'
+import { Eye, EyeOff, Lock, LogIn, Mail } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useTranslations } from '@/hooks/useTranslations'
+import LoadingSpinner from '@/components/ui/LoadingSpinner'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -14,6 +17,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
   useEffect(() => {
     if (status === 'authenticated') {
@@ -41,49 +45,108 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center p-6">
-      <form
-        onSubmit={handleSubmit}
-        className="flex w-full max-w-md flex-col gap-4"
-      >
-        <h1 className="text-2xl font-semibold">{t('auth.login')}</h1>
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12 sm:px-6">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-1/2 size-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/8 blur-3xl" />
+        <div className="absolute inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_50%_0%,rgba(124,58,237,0.12),transparent_65%)]" />
+      </div>
 
-        <label className="flex flex-col gap-2">
-          <span>{t('auth.email')}</span>
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-            className="rounded border px-3 py-2"
-          />
-        </label>
-
-        <label className="flex flex-col gap-2">
-          <span>{t('auth.password')}</span>
-          <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-            className="rounded border px-3 py-2"
-          />
-        </label>
-
-        {error && (
-          <p role="alert" className="text-sm">
-            {error}
-          </p>
-        )}
-
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="rounded bg-primary px-4 py-2 text-primary-foreground disabled:opacity-50"
+      <div className="relative w-full max-w-md">
+        <form
+          onSubmit={handleSubmit}
+          className="relative overflow-hidden rounded-[28px] border border-border bg-surface/95 shadow-[0_30px_90px_-45px_rgba(124,58,237,0.55)] backdrop-blur-sm"
         >
-          {isSubmitting ? t('auth.loggingIn') : t('auth.login')}
-        </button>
-      </form>
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.16),transparent_70%)]" />
+
+          <div className="relative px-6 py-8 sm:px-8 sm:py-10">
+            <div className="flex flex-col items-center text-center">
+              <div className="flex size-14 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[0_12px_35px_-18px_rgba(124,58,237,0.75)]">
+                <LogIn className="size-6 rtl:rotate-180" />
+              </div>
+
+              <h1 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                {t('auth.login')}
+              </h1>
+
+              <p className="mt-2 max-w-xs text-sm leading-6 text-muted">
+                {t('auth.loginDescription')}
+              </p>
+            </div>
+
+            <div className="mt-8 space-y-5">
+              <label className="flex flex-col gap-2">
+                <span className="text-sm font-medium text-foreground">
+                  {t('auth.email')}
+                </span>
+
+                <div className="relative">
+                  <Mail className="pointer-events-none absolute inset-y-0 start-3.5 my-auto size-4 text-muted" />
+
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    required
+                    className="h-12 w-full rounded-xl border border-border bg-surface-muted px-3.5 ps-10 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/10"
+                  />
+                </div>
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-sm font-medium text-foreground">
+                  {t('auth.password')}
+                </span>
+
+                <div className="relative">
+                  <Lock className="pointer-events-none absolute inset-y-0 start-3.5 my-auto size-4 text-muted" />
+
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                    required
+                    className="h-12 w-full rounded-xl border border-border bg-surface-muted px-3.5 ps-10 pe-11 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/10"
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((value) => !value)}
+                    aria-label={t('auth.togglePassword')}
+                    className="absolute inset-y-0 end-2 flex size-8 my-auto cursor-pointer items-center justify-center rounded-lg text-muted transition hover:bg-surface hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20"
+                  >
+                    {showPassword ? (
+                      <EyeOff className="size-4" />
+                    ) : (
+                      <Eye className="size-4" />
+                    )}
+                  </button>
+                </div>
+              </label>
+
+              {error && (
+                <p
+                  role="alert"
+                  className="rounded-xl border border-red-500/20 bg-red-500/10 px-3.5 py-3 text-sm leading-6 text-red-500"
+                >
+                  {error}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="flex h-12 w-full cursor-pointer items-center justify-center rounded-xl bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-[0_14px_30px_-16px_rgba(124,58,237,0.9)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_35px_-16px_rgba(124,58,237,0.95)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20 disabled:cursor-not-allowed disabled:translate-y-0 disabled:opacity-50 disabled:shadow-none"
+              >
+                {isSubmitting ? (
+                  <LoadingSpinner className="size-5" />
+                ) : (
+                  t('auth.login')
+                )}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </main>
   )
 }
