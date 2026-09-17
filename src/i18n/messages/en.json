@@ -120,5 +120,21 @@
     "orderNumber": "Order number",
     "continuePayment": "Continue to payment",
     "paymentComingSoon": "Payment will be connected in the next step."
+  },
+  "paymentResult": {
+    "loading": "Checking payment status",
+    "loadingDescription": "Please wait while we verify your payment.",
+    "successTitle": "Payment successful",
+    "successDescription": "Your payment was confirmed and your purchased access has been granted.",
+    "failedTitle": "Payment failed",
+    "failedDescription": "The payment could not be completed. Your cart has not been cleared.",
+    "pendingTitle": "Payment is pending",
+    "pendingDescription": "Your payment has not been marked as completed yet.",
+    "errorTitle": "Payment result unavailable",
+    "errorDescription": "We couldn't verify the payment result. Please check your account or try again.",
+    "orderNumber": "Order number",
+    "paymentNumber": "Payment number",
+    "browseItems": "Browse Products",
+    "account": "Go to Account"
   }
 }

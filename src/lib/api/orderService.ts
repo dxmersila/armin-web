@@ -21,3 +21,12 @@ export async function createItemOrder(
     token,
   })
 }
+
+export async function getOrder(
+  orderId: number,
+  token: string,
+): Promise<{ data: Order }> {
+  return apiClient<{ data: Order }>(`/orders/${orderId}`, {
+    token,
+  })
+}
