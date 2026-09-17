@@ -4,6 +4,7 @@ import ThemeProvider from './ThemeProvider'
 import I18nProvider from '@/i18n/I18nProvider'
 import { LocaleProvider } from '@/i18n/LocaleProvider'
 import { AuthProvider } from '@/components/auth/AuthProvider'
+import { CartProvider } from '@/components/cart/CartProvider'
 
 export default function AppProviders({
   children,
@@ -15,7 +16,9 @@ export default function AppProviders({
       <LocaleProvider>
         <I18nProvider>
           <AuthProvider>
-            {children}
+            <CartProvider>
+              {children}
+            </CartProvider>
           </AuthProvider>
         </I18nProvider>
       </LocaleProvider>
