@@ -92,6 +92,19 @@
     "sort": "Sort"
   },
   "cart": {
-    "title": "Cart"
+    "title": "Cart",
+    "emptyTitle": "Your cart is empty",
+    "emptyDescription": "Browse the marketplace and add paid products you want to purchase.",
+    "browseItems": "Browse Products",
+    "itemsCount": "items",
+    "products": "Products",
+    "clear": "Clear cart",
+    "remove": "Remove",
+    "oneTime": "One-time purchase",
+    "summary": "Order summary",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "checkout": "Continue to checkout",
+    "checkoutComingSoon": "Checkout will be available in the next step."
   }
 }
