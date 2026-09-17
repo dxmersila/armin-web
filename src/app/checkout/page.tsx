@@ -9,6 +9,10 @@ import { useAuth } from '@/components/auth/AuthProvider'
 import { useCart } from '@/components/cart/CartProvider'
 import LoadingSpinner from '@/components/ui/LoadingSpinner'
 import { createItemOrder } from '@/lib/api/orderService'
+import {
+  createPayment,
+  initiatePayment,
+} from '@/lib/api/paymentService'
 import { getToken } from '@/lib/api/token'
 import type { Order } from '@/types/order'
 import { useLocale } from '@/hooks/useLocale'
@@ -22,8 +26,10 @@ export default function CheckoutPage() {
   const { items, total, itemCount, isHydrated } = useCart()
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isPaying, setIsPaying] = useState(false)
   const [error, setError] = useState('')
   const [order, setOrder] = useState<Order | null>(null)
+  const [paymentId, setPaymentId] = useState<number | null>(null)
 
   useEffect(() => {
     if (status === 'guest') {
@@ -56,6 +62,46 @@ export default function CheckoutPage() {
       setError(t('checkout.createOrderFailed'))
     } finally {
       setIsSubmitting(false)
+    }
+  }
+
+  async function handleContinueToPayment() {
+    if (!order) {
+      return
+    }
+
+    const token = getToken()
+
+    if (!token) {
+      router.replace('/login')
+      return
+    }
+
+    setError('')
+    setIsPaying(true)
+
+    try {
+      let currentPaymentId = paymentId
+
+      if (!currentPaymentId) {
+        const paymentResponse = await createPayment(order.id, token)
+        currentPaymentId = paymentResponse.data.id
+        setPaymentId(currentPaymentId)
+      }
+
+      const initiationResponse = await initiatePayment(
+        currentPaymentId,
+        token,
+      )
+
+      if (!initiationResponse.data.redirect_url) {
+        throw new Error('Missing payment redirect URL')
+      }
+
+      window.location.assign(initiationResponse.data.redirect_url)
+    } catch {
+      setError(t('checkout.paymentFailed'))
+      setIsPaying(false)
     }
   }
 
@@ -124,17 +170,27 @@ export default function CheckoutPage() {
               </span>
             </div>
 
+            {error && (
+              <p
+                role="alert"
+                className="mx-auto mt-5 max-w-sm rounded-xl border border-red-500/20 bg-red-500/10 px-3.5 py-3 text-sm leading-6 text-red-500"
+              >
+                {error}
+              </p>
+            )}
+
             <button
               type="button"
-              disabled
-              className="mt-6 flex h-12 w-full cursor-not-allowed items-center justify-center rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground opacity-50"
+              onClick={handleContinueToPayment}
+              disabled={isPaying}
+              className="mt-6 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-[0_14px_30px_-16px_rgba(124,58,237,0.9)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_35px_-16px_rgba(124,58,237,0.95)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20 disabled:cursor-not-allowed disabled:translate-y-0 disabled:opacity-50 disabled:shadow-none"
             >
-              {t('checkout.continuePayment')}
+              {isPaying ? (
+                <LoadingSpinner className="size-5" />
+              ) : (
+                t('checkout.continuePayment')
+              )}
             </button>
-
-            <p className="mt-3 text-center text-xs leading-5 text-muted">
-              {t('checkout.paymentComingSoon')}
-            </p>
           </div>
         </section>
       </main>

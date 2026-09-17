@@ -114,6 +114,7 @@
     "summary": "Order summary",
     "createOrder": "Place order",
     "createOrderFailed": "We couldn't create your order. Please try again.",
+    "paymentFailed": "We couldn't start the payment. Please try again.",
     "backToCart": "Back to cart",
     "orderCreated": "Order created",
     "orderCreatedDescription": "Your order has been created successfully. Payment is the next step.",

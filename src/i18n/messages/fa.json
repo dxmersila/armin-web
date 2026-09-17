@@ -114,6 +114,7 @@
     "summary": "خلاصه سفارش",
     "createOrder": "ثبت سفارش",
     "createOrderFailed": "ثبت سفارش انجام نشد. دوباره تلاش کنید.",
+    "paymentFailed": "شروع پرداخت انجام نشد. دوباره تلاش کنید.",
     "backToCart": "بازگشت به سبد",
     "orderCreated": "سفارش ایجاد شد",
     "orderCreatedDescription": "سفارش شما با موفقیت ایجاد شد. مرحله بعد پرداخت است.",
