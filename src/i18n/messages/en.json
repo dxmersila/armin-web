@@ -79,7 +79,9 @@
     "toman": "Toman",
     "category": "Category",
     "tags": "Tags",
-    "noImage": "No image available"
+    "noImage": "No image available",
+    "addToCart": "Add to Cart",
+    "inCart": "In Cart"
   },
   "filters": {
     "all": "All",
