@@ -1,15 +1,17 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { LogOut, User } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useTranslations } from '@/hooks/useTranslations'
+import LoadingSpinner from '@/components/ui/LoadingSpinner'
 
 export default function AccountPage() {
   const router = useRouter()
   const { status, user, logout } = useAuth()
+  const [isLoggingOut, setIsLoggingOut] = useState(false)
   const t = useTranslations()
 
   useEffect(() => {
@@ -88,13 +90,19 @@ export default function AccountPage() {
         <div className="relative border-t border-border bg-surface-muted/40 px-5 py-4 sm:px-8">
           <button
             type="button"
+            disabled={isLoggingOut}
             onClick={async () => {
+              setIsLoggingOut(true)
               await logout()
               router.replace('/')
             }}
-            className="group inline-flex cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
+            className="group inline-flex cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <LogOut className="size-4 rtl:rotate-180 transition-transform duration-200 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
+            {isLoggingOut ? (
+              <LoadingSpinner />
+            ) : (
+              <LogOut className="size-4 rtl:rotate-180 transition-transform duration-200 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
+            )}
             <span>{t('account.logout')}</span>
           </button>
         </div>

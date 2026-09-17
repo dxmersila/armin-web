@@ -74,14 +74,12 @@ export function AuthProvider({
   const logout = useCallback(async () => {
     const token = getToken()
 
-    try {
-      if (token) {
-        await logoutRequest(token)
-      }
-    } finally {
-      removeToken()
-      setUser(null)
-      setStatus('guest')
+    removeToken()
+    setUser(null)
+    setStatus('guest')
+
+    if (token) {
+      void logoutRequest(token).catch(() => {})
     }
   }, [])
 
