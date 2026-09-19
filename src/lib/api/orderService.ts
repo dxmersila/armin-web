@@ -1,4 +1,5 @@
 import { apiClient } from './client'
+import type { PaginatedResponse } from '@/types/api'
 import type { Order } from '@/types/order'
 
 interface CreateItemOrderData {
@@ -29,4 +30,20 @@ export async function getOrder(
   return apiClient<{ data: Order }>(`/orders/${orderId}`, {
     token,
   })
+}
+
+export async function listOrders(
+  token: string,
+  page?: number,
+): Promise<PaginatedResponse<Order>> {
+  const query = page !== undefined
+    ? `?page=${encodeURIComponent(String(page))}`
+    : ''
+
+  return apiClient<PaginatedResponse<Order>>(
+    `/orders${query}`,
+    {
+      token,
+    },
+  )
 }
