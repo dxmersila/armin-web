@@ -21,27 +21,37 @@ export default function UserMenu({
   if (status !== 'authenticated') {
     return (
       <div className="min-w-0">
-        <Link
-          href="/login"
-          onClick={onNavigate}
-          aria-label={t('common.login')}
-          className="flex items-start gap-2"
-        >
+        <div className="flex items-start gap-2">
           <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-muted">
             <User className="size-4" />
           </span>
 
           <div className="min-w-0 pt-0.5">
-            <p className="truncate text-sm font-medium text-foreground transition hover:text-muted">
+            <p className="truncate text-sm font-medium text-foreground">
               {t('common.guest')}
             </p>
 
-            <span className="mt-0.5 inline-flex items-center gap-1.5 text-xs font-medium text-muted transition hover:text-foreground">
-              <LogIn className="size-3.5" />
-              {t('common.login')}
-            </span>
+            <div className="mt-2 flex items-center gap-2">
+              <Link
+                href="/login"
+                onClick={onNavigate}
+                className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+              >
+                <LogIn className="size-3.5" />
+                {t('common.login')}
+              </Link>
+
+              <Link
+                href="/register"
+                onClick={onNavigate}
+                className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+              >
+                <User className="size-3.5" />
+                {t('common.register')}
+              </Link>
+            </div>
           </div>
-        </Link>
+        </div>
       </div>
     )
   }

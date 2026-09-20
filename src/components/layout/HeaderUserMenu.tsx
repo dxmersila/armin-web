@@ -16,16 +16,23 @@ export default function HeaderUserMenu() {
 
   if (status !== 'authenticated') {
     return (
-      <Link
-        href="/login"
-        className="inline-flex items-center gap-2 text-sm font-medium text-muted transition hover:text-foreground"
-      >
-        <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-muted">
-          <User className="size-4" />
-        </span>
+      <div className="flex items-center gap-1">
+        <Link
+          href="/login"
+          className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+        >
+          <LogIn className="size-4" />
+          <span>{t('common.login')}</span>
+        </Link>
 
-        <span>{t('common.login')}</span>
-      </Link>
+        <Link
+          href="/register"
+          className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+        >
+          <User className="size-4" />
+          <span>{t('common.register')}</span>
+        </Link>
+      </div>
     )
   }
 

@@ -3,6 +3,7 @@
     "appName": "Armin",
     "items": "Products",
     "login": "Login",
+    "register": "Sign up",
     "account": "Account",
     "logout": "Logout",
     "switchToLight": "Switch to light mode",
@@ -55,6 +56,7 @@
   },
   "auth": {
     "login": "Login",
+    "register": "Sign up",
     "email": "Email",
     "password": "Password",
     "loginFailed": "Login failed.",

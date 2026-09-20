@@ -3,6 +3,7 @@
     "appName": "آرمین",
     "items": "محصولات",
     "login": "ورود",
+    "register": "ثبت‌نام",
     "account": "حساب کاربری",
     "logout": "خروج",
     "switchToLight": "تغییر به حالت روشن",
@@ -55,6 +56,7 @@
   },
   "auth": {
     "login": "ورود",
+    "register": "ثبت‌نام",
     "email": "ایمیل",
     "password": "رمز عبور",
     "loginFailed": "ورود ناموفق بود.",
