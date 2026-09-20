@@ -35,18 +35,20 @@ export default function HeaderUserMenu() {
         href="/library"
         aria-label={t('common.library')}
         title={t('common.library')}
-        className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-lg text-muted transition hover:bg-surface-muted hover:text-foreground"
+        className="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
       >
         <Library className="size-4" />
+        <span>{t('common.library')}</span>
       </Link>
 
       <Link
         href="/orders"
         aria-label={t('common.orders')}
         title={t('common.orders')}
-        className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-lg text-muted transition hover:bg-surface-muted hover:text-foreground"
+        className="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
       >
         <ShoppingBag className="size-4" />
+        <span>{t('common.orders')}</span>
       </Link>
 
       <Link
