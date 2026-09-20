@@ -183,6 +183,10 @@
     "cancel": "Cancel order",
     "cancelling": "Cancelling...",
     "cancelConfirm": "Are you sure you want to cancel this order?",
-    "cancelError": "We couldn’t cancel this order. Please try again."
+    "cancelError": "We couldn’t cancel this order. Please try again.",
+    "cancelConfirmTitle": "Cancel this order?",
+    "cancelModal": "Keep order",
+    "closeModal": "Close",
+    "paymentFailed": "We couldn’t continue to payment. Please try again."
   }
 }

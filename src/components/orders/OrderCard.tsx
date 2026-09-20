@@ -9,13 +9,17 @@ import type { Order } from '@/types/order'
 interface OrderCardProps {
   order: Order
   isCancelling?: boolean
+  isPaying?: boolean
   onCancel?: (orderId: number) => void
+  onContinuePayment?: (orderId: number) => void
 }
 
 export default function OrderCard({
   order,
   isCancelling = false,
+  isPaying = false,
   onCancel,
+  onContinuePayment,
 }: OrderCardProps) {
   const t = useTranslations()
   const { locale } = useLocale()
@@ -122,11 +126,22 @@ export default function OrderCard({
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
+          {order.status === 'pending' && onContinuePayment && (
+            <button
+              type="button"
+              onClick={() => onContinuePayment(order.id)}
+              disabled={isPaying || isCancelling}
+              className="inline-flex cursor-pointer items-center justify-center rounded-lg bg-primary px-3.5 py-2 text-xs font-semibold text-primary-foreground shadow-sm transition hover:-translate-y-0.5 hover:opacity-90 disabled:cursor-not-allowed disabled:translate-y-0 disabled:opacity-50"
+            >
+              {t('checkout.continuePayment')}
+            </button>
+          )}
+
           {order.status === 'pending' && onCancel && (
             <button
               type="button"
               onClick={() => onCancel(order.id)}
-              disabled={isCancelling}
+              disabled={isCancelling || isPaying}
               className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-red-500/20 px-3 py-2 text-xs font-medium text-red-500 transition hover:bg-red-500/10 disabled:cursor-not-allowed disabled:opacity-50"
             >
               <X className="size-3.5" />
