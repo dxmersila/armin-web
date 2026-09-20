@@ -14,6 +14,10 @@ import { useRouter } from 'next/navigation'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useTranslations } from '@/hooks/useTranslations'
 import LoadingSpinner from '@/components/ui/LoadingSpinner'
+import {
+  getAuthSwitchUrl,
+  getSafeReturnTo,
+} from '@/lib/auth/redirect'
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -28,10 +32,17 @@ export default function RegisterPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [showPasswordConfirmation, setShowPasswordConfirmation] = useState(false)
+  const [loginUrl, setLoginUrl] = useState('/login')
 
   useEffect(() => {
+    const returnTo = getSafeReturnTo(
+      new URLSearchParams(window.location.search).get('returnTo'),
+    )
+
+    setLoginUrl(getAuthSwitchUrl('/login'))
+
     if (status === 'authenticated') {
-      router.replace('/account')
+      router.replace(returnTo)
     }
   }, [router, status])
 
@@ -48,7 +59,11 @@ export default function RegisterPage() {
         password_confirmation: passwordConfirmation,
       })
 
-      router.push('/account')
+      const returnTo = getSafeReturnTo(
+        new URLSearchParams(window.location.search).get('returnTo'),
+      )
+
+      router.push(returnTo)
     } catch {
       setError(t('auth.registerFailed'))
     } finally {
@@ -218,7 +233,7 @@ export default function RegisterPage() {
               <p className="text-center text-sm text-muted">
                 {t('auth.haveAccount')}{' '}
                 <a
-                  href="/login"
+                  href={loginUrl}
                   className="font-medium text-primary transition hover:opacity-80"
                 >
                   {t('auth.login')}

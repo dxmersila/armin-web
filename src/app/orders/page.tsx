@@ -25,6 +25,7 @@ import {
 } from '@/lib/api/paymentService'
 import { getToken } from '@/lib/api/token'
 import type { Order } from '@/types/order'
+import { getLoginUrl } from '@/lib/auth/redirect'
 
 export default function OrdersPage() {
   const router = useRouter()
@@ -45,7 +46,7 @@ export default function OrdersPage() {
 
   useEffect(() => {
     if (status === 'guest') {
-      router.replace('/login')
+      router.replace(getLoginUrl())
       return
     }
 
@@ -56,7 +57,7 @@ export default function OrdersPage() {
     const token = getToken()
 
     if (!token) {
-      router.replace('/login')
+      router.replace(getLoginUrl())
       return
     }
 
@@ -116,7 +117,7 @@ export default function OrdersPage() {
     const token = getToken()
 
     if (!token) {
-      router.replace('/login')
+      router.replace(getLoginUrl())
       return
     }
 
@@ -152,7 +153,7 @@ export default function OrdersPage() {
     const token = getToken()
 
     if (!token) {
-      router.replace('/login')
+      router.replace(getLoginUrl())
       return
     }
 

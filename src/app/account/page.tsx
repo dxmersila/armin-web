@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useTranslations } from '@/hooks/useTranslations'
 import LoadingSpinner from '@/components/ui/LoadingSpinner'
+import { getLoginUrl } from '@/lib/auth/redirect'
 
 export default function AccountPage() {
   const router = useRouter()
@@ -16,7 +17,7 @@ export default function AccountPage() {
 
   if (status === 'loading' || status === 'guest') {
     if (status === 'guest') {
-      router.replace('/login')
+      router.replace(getLoginUrl())
     }
 
     return null

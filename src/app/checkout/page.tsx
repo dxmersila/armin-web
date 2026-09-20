@@ -20,6 +20,7 @@ import { getToken } from '@/lib/api/token'
 import type { Order } from '@/types/order'
 import { useLocale } from '@/hooks/useLocale'
 import { useTranslations } from '@/hooks/useTranslations'
+import { getLoginUrl } from '@/lib/auth/redirect'
 
 export default function CheckoutPage() {
   const router = useRouter()
@@ -36,7 +37,7 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     if (status === 'guest') {
-      router.replace('/login')
+      router.replace(getLoginUrl())
     }
   }, [router, status])
 
@@ -76,7 +77,7 @@ export default function CheckoutPage() {
     const token = getToken()
 
     if (!token) {
-      router.replace('/login')
+      router.replace(getLoginUrl())
       return
     }
 

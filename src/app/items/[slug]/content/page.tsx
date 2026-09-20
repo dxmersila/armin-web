@@ -10,6 +10,7 @@ import LoadingSpinner from '@/components/ui/LoadingSpinner'
 import { getItemContent } from '@/lib/api/itemContentService'
 import { getToken } from '@/lib/api/token'
 import { useTranslations } from '@/hooks/useTranslations'
+import { getLoginUrl } from '@/lib/auth/redirect'
 
 interface ItemContentPageProps {
   params: Promise<{
@@ -32,7 +33,7 @@ export default function ItemContentPage({
 
   useEffect(() => {
     if (status === 'guest') {
-      router.replace('/login')
+      router.replace(getLoginUrl())
       return
     }
 
@@ -43,7 +44,7 @@ export default function ItemContentPage({
     const token = getToken()
 
     if (!token) {
-      router.replace('/login')
+      router.replace(getLoginUrl())
       return
     }
 

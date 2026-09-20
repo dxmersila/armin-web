@@ -20,6 +20,7 @@ import {
   getItemAccess,
 } from '@/lib/api/itemAccessService'
 import { getToken } from '@/lib/api/token'
+import { getLoginUrl } from '@/lib/auth/redirect'
 
 interface ItemActionsProps {
   item: Item
@@ -133,14 +134,14 @@ export default function ItemActions({ item }: ItemActionsProps) {
           onClick={async () => {
             if (isFree) {
               if (status !== 'authenticated') {
-                router.replace('/login')
+                router.replace(getLoginUrl())
                 return
               }
 
               const token = getToken()
 
               if (!token) {
-                router.replace('/login')
+                router.replace(getLoginUrl())
                 return
               }
 

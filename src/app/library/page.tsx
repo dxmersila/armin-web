@@ -11,6 +11,7 @@ import { useTranslations } from '@/hooks/useTranslations'
 import { listLibrary } from '@/lib/api/libraryService'
 import { getToken } from '@/lib/api/token'
 import type { Item } from '@/types/item'
+import { getLoginUrl } from '@/lib/auth/redirect'
 
 export default function LibraryPage() {
   const router = useRouter()
@@ -22,7 +23,7 @@ export default function LibraryPage() {
 
   useEffect(() => {
     if (status === 'guest') {
-      router.replace('/login')
+      router.replace(getLoginUrl())
       return
     }
 
@@ -33,7 +34,7 @@ export default function LibraryPage() {
     const token = getToken()
 
     if (!token) {
-      router.replace('/login')
+      router.replace(getLoginUrl())
       return
     }
 
