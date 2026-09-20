@@ -5,12 +5,14 @@ import ItemSearch from '@/components/items/ItemSearch'
 import ItemSort from '@/components/items/ItemSort'
 import ItemsHeader from '@/components/items/ItemsHeader'
 import ItemGrid from '@/components/items/ItemGrid'
+import Pagination from '@/components/ui/Pagination'
 
 interface ItemsPageProps {
   searchParams: Promise<{
     category?: string
     search?: string
     sort?: 'latest' | 'oldest'
+    page?: string
   }>
 }
 
@@ -18,12 +20,14 @@ export default async function ItemsPage({
   searchParams,
 }: ItemsPageProps) {
   const params = await searchParams
+  const currentPage = Number(params.page) || 1
 
   const [response, categoriesResponse] = await Promise.all([
     listItems({
       category: params.category,
       search: params.search,
       sort: params.sort,
+      page: currentPage,
     }),
     listCategories(),
   ])
@@ -52,7 +56,33 @@ export default async function ItemsPage({
       </section>
 
       {response.data.length > 0 ? (
-        <ItemGrid items={response.data} />
+        <>
+          <ItemGrid items={response.data} />
+
+          <Pagination
+            currentPage={response.meta.current_page}
+            lastPage={response.meta.last_page}
+            buildHref={(page) => {
+              const searchParams = new URLSearchParams()
+
+              if (params.category) {
+                searchParams.set('category', params.category)
+              }
+
+              if (params.search) {
+                searchParams.set('search', params.search)
+              }
+
+              if (params.sort) {
+                searchParams.set('sort', params.sort)
+              }
+
+              searchParams.set('page', String(page))
+
+              return `/items?${searchParams.toString()}`
+            }}
+          />
+        </>
       ) : (
         <section className="mt-8 rounded-2xl border border-border bg-surface px-6 py-14 text-center sm:px-10">
           <h2 className="text-lg font-semibold text-foreground">
