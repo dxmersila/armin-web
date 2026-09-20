@@ -15,3 +15,16 @@ export async function getItemAccess(
     },
   )
 }
+
+export async function claimFreeItem(
+  slug: string,
+  token: string,
+): Promise<ItemAccessResponse> {
+  return apiClient<ItemAccessResponse>(
+    `/items/${encodeURIComponent(slug)}/access`,
+    {
+      method: 'POST',
+      token,
+    },
+  )
+}

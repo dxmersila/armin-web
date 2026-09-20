@@ -15,7 +15,10 @@ import { useAuth } from '@/components/auth/AuthProvider'
 import { useLocale } from '@/hooks/useLocale'
 import { useTranslations } from '@/hooks/useTranslations'
 import { useCart } from '@/components/cart/CartProvider'
-import { getItemAccess } from '@/lib/api/itemAccessService'
+import {
+  claimFreeItem,
+  getItemAccess,
+} from '@/lib/api/itemAccessService'
 import { getToken } from '@/lib/api/token'
 
 interface ItemActionsProps {
@@ -34,16 +37,11 @@ export default function ItemActions({ item }: ItemActionsProps) {
 
   const [hasAccess, setHasAccess] = useState(false)
   const [isCheckingAccess, setIsCheckingAccess] = useState(false)
+  const [isClaiming, setIsClaiming] = useState(false)
 
   useEffect(() => {
     if (status !== 'authenticated') {
       setHasAccess(false)
-      setIsCheckingAccess(false)
-      return
-    }
-
-    if (isFree) {
-      setHasAccess(true)
       setIsCheckingAccess(false)
       return
     }
@@ -80,7 +78,7 @@ export default function ItemActions({ item }: ItemActionsProps) {
     return () => {
       isCurrent = false
     }
-  }, [isFree, item.slug, status])
+  }, [item.slug, status])
 
   const formattedPrice = new Intl.NumberFormat(
     locale === 'fa' ? 'fa-IR' : 'en-US',
@@ -122,10 +120,35 @@ export default function ItemActions({ item }: ItemActionsProps) {
       ) : (
         <button
           type="button"
-          disabled={isCheckingAccess || (!isFree && isInCart)}
-          onClick={() => {
+          disabled={
+            isCheckingAccess ||
+            isClaiming ||
+            (!isFree && isInCart)
+          }
+          onClick={async () => {
             if (isFree) {
-              router.replace('/login')
+              if (status !== 'authenticated') {
+                router.replace('/login')
+                return
+              }
+
+              const token = getToken()
+
+              if (!token) {
+                router.replace('/login')
+                return
+              }
+
+              try {
+                setIsClaiming(true)
+                await claimFreeItem(item.slug, token)
+                setHasAccess(true)
+              } catch {
+                setHasAccess(false)
+              } finally {
+                setIsClaiming(false)
+              }
+
               return
             }
 
@@ -135,7 +158,7 @@ export default function ItemActions({ item }: ItemActionsProps) {
           }}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85 disabled:cursor-default disabled:opacity-70"
         >
-          {isCheckingAccess ? (
+          {isCheckingAccess || isClaiming ? (
             <span>{t('item.access')}</span>
           ) : isFree ? (
             <>
