@@ -60,7 +60,15 @@
     "loginFailed": "ورود ناموفق بود.",
     "loggingIn": "در حال ورود...",
     "loginDescription": "وارد حساب کاربری خود شوید",
-    "togglePassword": "نمایش یا مخفی کردن رمز عبور"
+    "togglePassword": "نمایش یا مخفی کردن رمز عبور",
+    "name": "نام",
+    "register": "ایجاد حساب کاربری",
+    "registerDescription": "برای شروع حساب کاربری خود را ایجاد کنید",
+    "confirmPassword": "تکرار رمز عبور",
+    "registerFailed": "ثبت‌نام ناموفق بود.",
+    "noAccount": "حساب کاربری ندارید؟",
+    "createAccount": "ایجاد حساب کاربری",
+    "haveAccount": "قبلاً حساب کاربری دارید؟"
   },
   "account": {
     "title": "حساب کاربری",

@@ -1,7 +1,7 @@
 'use client'
 
 import { FormEvent, useEffect, useState } from 'react'
-import { Eye, EyeOff, Lock, LogIn, Mail } from 'lucide-react'
+import { Eye, EyeOff, Lock, LogIn, Mail, UserPlus } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 import { useAuth } from '@/components/auth/AuthProvider'
@@ -143,6 +143,17 @@ export default function LoginPage() {
                   t('auth.login')
                 )}
               </button>
+
+              <p className="text-center text-sm text-muted">
+                {t('auth.noAccount')}{' '}
+                <a
+                  href="/register"
+                  className="font-medium text-primary transition hover:opacity-80"
+                >
+                  <UserPlus className="me-1 inline size-4 align-[-2px]" />
+                  {t('auth.createAccount')}
+                </a>
+              </p>
             </div>
           </div>
         </form>

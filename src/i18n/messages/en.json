@@ -60,7 +60,15 @@
     "loginFailed": "Login failed.",
     "loggingIn": "Logging in...",
     "loginDescription": "Sign in to your account",
-    "togglePassword": "Show or hide password"
+    "togglePassword": "Show or hide password",
+    "name": "Name",
+    "register": "Create account",
+    "registerDescription": "Create your account to get started",
+    "confirmPassword": "Confirm password",
+    "registerFailed": "Registration failed.",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create an account",
+    "haveAccount": "Already have an account?"
   },
   "account": {
     "title": "Account",

@@ -11,6 +11,7 @@ import {
   login as loginRequest,
   logout as logoutRequest,
   me,
+  register as registerRequest,
 } from '@/lib/api/authService'
 import {
   getToken,
@@ -26,10 +27,18 @@ interface LoginCredentials {
   password: string
 }
 
+interface RegisterData {
+  name: string
+  email: string
+  password: string
+  password_confirmation: string
+}
+
 interface AuthContextValue {
   status: AuthStatus
   user: User | null
   login: (credentials: LoginCredentials) => Promise<void>
+  register: (data: RegisterData) => Promise<void>
   logout: () => Promise<void>
 }
 
@@ -71,6 +80,14 @@ export function AuthProvider({
     setStatus('authenticated')
   }, [])
 
+  const register = useCallback(async (data: RegisterData) => {
+    const response = await registerRequest(data)
+
+    setToken(response.token)
+    setUser(response.user)
+    setStatus('authenticated')
+  }, [])
+
   const logout = useCallback(async () => {
     const token = getToken()
 
@@ -84,7 +101,7 @@ export function AuthProvider({
   }, [])
 
   return (
-    <AuthContext.Provider value={{ status, user, login, logout }}>
+    <AuthContext.Provider value={{ status, user, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   )
