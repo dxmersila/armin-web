@@ -11,7 +11,7 @@
     "toggleMenu": "Open menu",
     "closeMenu": "Close menu",
     "guest": "Guest",
-    "library": "Library",
+    "library": "My Products",
     "orders": "Orders"
   },
   "navigation": {
@@ -153,12 +153,12 @@
     "orders": "View Orders"
   },
   "library": {
-    "title": "My Library",
+    "title": "My Products",
     "description": "Products you currently have access to.",
-    "accessible": "Available in your library",
+    "accessible": "Available in your products",
     "accessProduct": "Access Product",
     "empty": "You don’t have any accessible products yet.",
-    "loadError": "We couldn’t load your library. Please try again."
+    "loadError": "We couldn’t load your products. Please try again."
   },
   "orders": {
     "title": "Order History",
