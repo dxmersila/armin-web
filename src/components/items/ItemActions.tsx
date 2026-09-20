@@ -117,14 +117,19 @@ export default function ItemActions({ item }: ItemActionsProps) {
           {t('item.access')}
           <ArrowRight className="size-4 rtl:rotate-180" />
         </Link>
+      ) : isInCart && !isFree ? (
+        <Link
+          href="/cart"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85"
+        >
+          <Check className="size-4" />
+          {t('item.inCart')}
+          <ArrowRight className="size-4 rtl:rotate-180" />
+        </Link>
       ) : (
         <button
           type="button"
-          disabled={
-            isCheckingAccess ||
-            isClaiming ||
-            (!isFree && isInCart)
-          }
+          disabled={isCheckingAccess || isClaiming}
           onClick={async () => {
             if (isFree) {
               if (status !== 'authenticated') {
@@ -152,9 +157,7 @@ export default function ItemActions({ item }: ItemActionsProps) {
               return
             }
 
-            if (!isInCart) {
-              addItem(item)
-            }
+            addItem(item)
           }}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85 disabled:cursor-default disabled:opacity-70"
         >
@@ -164,11 +167,6 @@ export default function ItemActions({ item }: ItemActionsProps) {
             <>
               <LockOpen className="size-4" />
               {t('item.getAccess')}
-            </>
-          ) : isInCart ? (
-            <>
-              <Check className="size-4" />
-              {t('item.inCart')}
             </>
           ) : (
             <>
