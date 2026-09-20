@@ -47,3 +47,13 @@ export async function listOrders(
     },
   )
 }
+
+export async function cancelOrder(
+  orderId: number,
+  token: string,
+): Promise<void> {
+  await apiClient<void>(`/orders/${orderId}`, {
+    method: 'DELETE',
+    token,
+  })
+}

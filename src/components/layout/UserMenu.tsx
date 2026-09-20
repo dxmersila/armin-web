@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { LogIn, LogOut, User } from 'lucide-react'
+import { Library, LogIn, LogOut, ShoppingBag, User } from 'lucide-react'
 
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -48,17 +48,13 @@ export default function UserMenu({
 
   return (
     <div className="min-w-0">
-      <Link
-        href="/account"
-        onClick={onNavigate}
-        className="flex items-start gap-2"
-      >
+      <div className="flex items-start gap-2">
         <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-muted">
           <User className="size-4" />
         </span>
 
         <div className="min-w-0 pt-0.5">
-          <p className="truncate text-sm font-medium text-foreground transition hover:text-muted">
+          <p className="truncate text-sm font-medium text-foreground">
             {user?.name || t('common.account')}
           </p>
 
@@ -66,23 +62,49 @@ export default function UserMenu({
             {user?.email}
           </p>
         </div>
-      </Link>
+      </div>
 
-      <button
-        type="button"
-        onClick={() => {
-          logout()
-          onNavigate?.()
-        }}
-        aria-label={t('common.logout')}
-        className="mt-1 flex cursor-pointer items-center gap-2 text-xs font-medium text-muted transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
-      >
-        <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-muted">
+      <div className="mt-4 space-y-1 border-t border-border pt-3">
+        <Link
+          href="/account"
+          onClick={onNavigate}
+          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+        >
+          <User className="size-4" />
+          <span>{t('common.account')}</span>
+        </Link>
+
+        <Link
+          href="/library"
+          onClick={onNavigate}
+          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+        >
+          <Library className="size-4" />
+          <span>{t('common.library')}</span>
+        </Link>
+
+        <Link
+          href="/orders"
+          onClick={onNavigate}
+          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+        >
+          <ShoppingBag className="size-4" />
+          <span>{t('common.orders')}</span>
+        </Link>
+
+        <button
+          type="button"
+          onClick={() => {
+            logout()
+            onNavigate?.()
+          }}
+          aria-label={t('common.logout')}
+          className="flex w-full cursor-pointer items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
+        >
           <LogOut className="size-4 rtl:rotate-180" />
-        </span>
-
-        <span>{t('common.logout')}</span>
-      </button>
+          <span>{t('common.logout')}</span>
+        </button>
+      </div>
     </div>
   )
 }

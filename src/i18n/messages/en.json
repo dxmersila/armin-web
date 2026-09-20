@@ -10,7 +10,9 @@
     "changeLanguage": "Change language",
     "toggleMenu": "Open menu",
     "closeMenu": "Close menu",
-    "guest": "Guest"
+    "guest": "Guest",
+    "library": "Library",
+    "orders": "Orders"
   },
   "navigation": {
     "items": "Products",
@@ -149,5 +151,38 @@
     "paymentNumber": "Payment number",
     "browseItems": "Browse Products",
     "account": "Go to Account"
+  },
+  "library": {
+    "title": "My Library",
+    "description": "Products you currently have access to.",
+    "accessible": "Available in your library",
+    "accessProduct": "Access Product",
+    "empty": "You don’t have any accessible products yet.",
+    "loadError": "We couldn’t load your library. Please try again."
+  },
+  "orders": {
+    "title": "Order History",
+    "description": "View your orders and payment status.",
+    "order": "Order",
+    "itemOrder": "Product order",
+    "subscriptionOrder": "Subscription",
+    "products": "Products",
+    "product": "product",
+    "productsCount": "products",
+    "total": "Total",
+    "status": "Status",
+    "date": "Date",
+    "pending": "Pending",
+    "paid": "Paid",
+    "failed": "Failed",
+    "cancelled": "Cancelled",
+    "empty": "You haven’t placed any orders yet.",
+    "loadError": "We couldn’t load your order history. Please try again.",
+    "previous": "Previous",
+    "next": "Next",
+    "cancel": "Cancel order",
+    "cancelling": "Cancelling...",
+    "cancelConfirm": "Are you sure you want to cancel this order?",
+    "cancelError": "We couldn’t cancel this order. Please try again."
   }
 }

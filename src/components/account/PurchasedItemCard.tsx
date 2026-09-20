@@ -3,18 +3,17 @@
 import Link from 'next/link'
 import { ArrowRight, LockOpen } from 'lucide-react'
 
-import type { OrderItem } from '@/types/order'
+import type { Item } from '@/types/item'
 import { useTranslations } from '@/hooks/useTranslations'
 
 interface PurchasedItemCardProps {
-  orderItem: OrderItem
+  item: Item
 }
 
 export default function PurchasedItemCard({
-  orderItem,
+  item,
 }: PurchasedItemCardProps) {
   const t = useTranslations()
-  const { item } = orderItem
 
   const primaryMedia =
     item.media.find((media) => media.is_primary) ??
@@ -43,7 +42,7 @@ export default function PurchasedItemCard({
           </h3>
 
           <p className="mt-1 text-xs text-muted">
-            {t('account.purchased')}
+            {t('library.accessible')}
           </p>
 
           <Link
@@ -51,7 +50,7 @@ export default function PurchasedItemCard({
             className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary transition hover:opacity-80"
           >
             <LockOpen className="size-3.5" />
-            {t('account.accessProduct')}
+            {t('library.accessProduct')}
             <ArrowRight className="size-3.5 rtl:rotate-180" />
           </Link>
         </div>
