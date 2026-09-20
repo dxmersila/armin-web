@@ -193,10 +193,10 @@ export default function PaymentResultPage() {
             </Link>
 
             <Link
-              href="/account"
+              href="/orders"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border px-5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
             >
-              {t('paymentResult.account')}
+              {t('paymentResult.orders')}
               <ArrowRight className="size-4 rtl:rotate-180" />
             </Link>
           </div>

@@ -150,7 +150,7 @@
     "orderNumber": "Order number",
     "paymentNumber": "Payment number",
     "browseItems": "Browse Products",
-    "account": "Go to Account"
+    "orders": "View Orders"
   },
   "library": {
     "title": "My Library",
