@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useEffect, useState } from 'react'
+import Link from 'next/link'
 import { Eye, EyeOff, Lock, LogIn, Mail, UserPlus } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
@@ -162,13 +163,13 @@ export default function LoginPage() {
 
               <p className="text-center text-sm text-muted">
                 {t('auth.noAccount')}{' '}
-                <a
+                <Link
                   href={registerUrl}
                   className="font-medium text-primary transition hover:opacity-80"
                 >
                   <UserPlus className="me-1 inline size-4 align-[-2px]" />
                   {t('auth.createAccount')}
-                </a>
+                </Link>
               </p>
             </div>
           </div>

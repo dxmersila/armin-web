@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useEffect, useState } from 'react'
+import Link from 'next/link'
 import {
   Eye,
   EyeOff,
@@ -232,12 +233,12 @@ export default function RegisterPage() {
 
               <p className="text-center text-sm text-muted">
                 {t('auth.haveAccount')}{' '}
-                <a
+                <Link
                   href={loginUrl}
                   className="font-medium text-primary transition hover:opacity-80"
                 >
                   {t('auth.login')}
-                </a>
+                </Link>
               </p>
             </div>
           </div>
