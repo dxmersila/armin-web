@@ -8,7 +8,10 @@ import { useRouter } from 'next/navigation'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useCart } from '@/components/cart/CartProvider'
 import LoadingSpinner from '@/components/ui/LoadingSpinner'
-import { createItemOrder } from '@/lib/api/orderService'
+import {
+  createItemOrder,
+  getOrder,
+} from '@/lib/api/orderService'
 import {
   createPayment,
   initiatePayment,
@@ -84,8 +87,19 @@ export default function CheckoutPage() {
       let currentPaymentId = paymentId
 
       if (!currentPaymentId) {
-        const paymentResponse = await createPayment(order.id, token)
-        currentPaymentId = paymentResponse.data.id
+        const orderResponse = await getOrder(order.id, token)
+
+        const pendingPayment = orderResponse.data.payments?.find(
+          (payment) => payment.status === 'pending',
+        )
+
+        if (pendingPayment) {
+          currentPaymentId = pendingPayment.id
+        } else {
+          const paymentResponse = await createPayment(order.id, token)
+          currentPaymentId = paymentResponse.data.id
+        }
+
         setPaymentId(currentPaymentId)
       }
 
