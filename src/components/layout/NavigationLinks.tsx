@@ -28,14 +28,6 @@ export default function NavigationLinks({
           <ArrowRight className="size-4 text-muted transition-colors group-hover:text-primary rtl:rotate-180" />
         </Link>
 
-        <Link
-          href="/#categories"
-          onClick={onNavigate}
-          className="group flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface-muted"
-        >
-          <span>{t('navigation.categories')}</span>
-          <ArrowRight className="size-4 text-muted transition-colors group-hover:text-primary rtl:rotate-180" />
-        </Link>
       </>
     )
   }
@@ -44,10 +36,6 @@ export default function NavigationLinks({
     <>
       <Link href="/items" onClick={onNavigate}>
         {t('navigation.items')}
-      </Link>
-
-      <Link href="/#categories" onClick={onNavigate}>
-        {t('navigation.categories')}
       </Link>
 
       <Link
