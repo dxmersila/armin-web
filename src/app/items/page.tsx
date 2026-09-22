@@ -64,25 +64,9 @@ export default async function ItemsPage({
           <Pagination
             currentPage={response.meta.current_page}
             lastPage={response.meta.last_page}
-            buildHref={(page) => {
-              const searchParams = new URLSearchParams()
-
-              if (params.category) {
-                searchParams.set('category', params.category)
-              }
-
-              if (params.search) {
-                searchParams.set('search', params.search)
-              }
-
-              if (params.sort) {
-                searchParams.set('sort', params.sort)
-              }
-
-              searchParams.set('page', String(page))
-
-              return `/items?${searchParams.toString()}`
-            }}
+            category={params.category}
+            search={params.search}
+            sort={params.sort}
           />
         </>
       ) : (

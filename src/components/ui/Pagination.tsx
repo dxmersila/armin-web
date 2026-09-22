@@ -8,18 +8,42 @@ import { useTranslations } from '@/hooks/useTranslations'
 interface PaginationProps {
   currentPage: number
   lastPage: number
-  buildHref: (page: number) => string
+  category?: string
+  search?: string
+  sort?: 'latest' | 'oldest'
 }
 
 export default function Pagination({
   currentPage,
   lastPage,
-  buildHref,
+  category,
+  search,
+  sort,
 }: PaginationProps) {
   const t = useTranslations()
 
   if (lastPage <= 1) {
     return null
+  }
+
+  const buildHref = (page: number) => {
+    const searchParams = new URLSearchParams()
+
+    if (category) {
+      searchParams.set('category', category)
+    }
+
+    if (search) {
+      searchParams.set('search', search)
+    }
+
+    if (sort) {
+      searchParams.set('sort', sort)
+    }
+
+    searchParams.set('page', String(page))
+
+    return `/items?${searchParams.toString()}`
   }
 
   return (
