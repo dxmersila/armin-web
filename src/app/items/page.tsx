@@ -7,6 +7,7 @@ import ItemsHeader from '@/components/items/ItemsHeader'
 import ItemGrid from '@/components/items/ItemGrid'
 import Pagination from '@/components/ui/Pagination'
 import SubscriptionPromoSection from '@/components/home/SubscriptionPromoSection'
+import ItemsEmptyState from '@/components/items/ItemsEmptyState'
 
 interface ItemsPageProps {
   searchParams: Promise<{
@@ -85,15 +86,7 @@ export default async function ItemsPage({
           />
         </>
       ) : (
-        <section className="mt-8 rounded-2xl border border-border bg-surface px-6 py-14 text-center sm:px-10">
-          <h2 className="text-lg font-semibold text-foreground">
-            No products found
-          </h2>
-
-          <p className="mt-2 text-sm text-muted">
-            Try changing your search or filters.
-          </p>
-        </section>
+        <ItemsEmptyState />
       )}
 
       <SubscriptionPromoSection />

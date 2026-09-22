@@ -1,6 +1,9 @@
+'use client'
 
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+
+import { useTranslations } from '@/hooks/useTranslations'
 
 interface PaginationProps {
   currentPage: number
@@ -13,20 +16,22 @@ export default function Pagination({
   lastPage,
   buildHref,
 }: PaginationProps) {
+  const t = useTranslations()
+
   if (lastPage <= 1) {
     return null
   }
 
   return (
     <nav
-      aria-label="Pagination"
+      aria-label={t('common.pagination')}
       className="mt-10 flex items-center justify-center gap-2"
     >
       {currentPage > 1 ? (
         <Link
           href={buildHref(currentPage - 1)}
           className="inline-flex size-10 items-center justify-center rounded-xl border border-border bg-surface text-muted transition hover:border-foreground/20 hover:text-foreground"
-          aria-label="Previous page"
+          aria-label={t('orders.previous')}
         >
           <ChevronLeft className="size-4 rtl:rotate-180" />
         </Link>
@@ -64,7 +69,7 @@ export default function Pagination({
         <Link
           href={buildHref(currentPage + 1)}
           className="inline-flex size-10 items-center justify-center rounded-xl border border-border bg-surface text-muted transition hover:border-foreground/20 hover:text-foreground"
-          aria-label="Next page"
+          aria-label={t('orders.next')}
         >
           <ChevronRight className="size-4 rtl:rotate-180" />
         </Link>

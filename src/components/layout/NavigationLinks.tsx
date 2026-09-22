@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Search } from 'lucide-react'
 
 import { useTranslations } from '@/hooks/useTranslations'
 
@@ -48,6 +48,14 @@ export default function NavigationLinks({
 
       <Link href="/#categories" onClick={onNavigate}>
         {t('navigation.categories')}
+      </Link>
+
+      <Link
+        href="/items"
+        aria-label={t('navigation.search')}
+        className="flex size-8 items-center justify-center rounded-lg text-muted transition hover:bg-surface-muted hover:text-foreground"
+      >
+        <Search className="size-4" />
       </Link>
     </>
   )
