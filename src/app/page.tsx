@@ -3,6 +3,7 @@ import { listItems } from '@/lib/api/itemService'
 import CategorySection from '@/components/home/CategorySection'
 import HeroSection from '@/components/home/HeroSection'
 import LatestItemsSection from '@/components/home/LatestItemsSection'
+import SubscriptionPromoSection from '@/components/home/SubscriptionPromoSection'
 
 export default async function Home() {
   const [itemsResponse, categoriesResponse] = await Promise.all([
@@ -17,7 +18,7 @@ export default async function Home() {
   const categories = categoriesResponse.data
 
   return (
-    <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-16">
+    <main className="mx-auto w-full max-w-7xl px-4 pb-1 pt-10 sm:px-6 lg:pb-2 lg:pt-16">
       <HeroSection items={latestItems.slice(0, 3)} />
 
       {categories.length > 0 && (
@@ -27,6 +28,8 @@ export default async function Home() {
       {latestItems.length > 0 && (
         <LatestItemsSection items={latestItems} />
       )}
+
+      <SubscriptionPromoSection />
     </main>
   )
 }

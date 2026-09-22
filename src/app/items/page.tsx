@@ -6,6 +6,7 @@ import ItemSort from '@/components/items/ItemSort'
 import ItemsHeader from '@/components/items/ItemsHeader'
 import ItemGrid from '@/components/items/ItemGrid'
 import Pagination from '@/components/ui/Pagination'
+import SubscriptionPromoSection from '@/components/home/SubscriptionPromoSection'
 
 interface ItemsPageProps {
   searchParams: Promise<{
@@ -33,7 +34,7 @@ export default async function ItemsPage({
   ])
 
   return (
-    <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-14">
+    <main className="mx-auto w-full max-w-7xl px-4 pb-1 pt-10 sm:px-6 lg:pb-2 lg:pt-14">
       <ItemsHeader />
 
       <section className="mt-8 rounded-2xl border border-border bg-surface/70 p-4 shadow-sm sm:p-5">
@@ -94,6 +95,8 @@ export default async function ItemsPage({
           </p>
         </section>
       )}
+
+      <SubscriptionPromoSection />
     </main>
   )
 }

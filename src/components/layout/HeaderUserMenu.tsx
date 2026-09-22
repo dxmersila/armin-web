@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Library, LogIn, LogOut, ShoppingBag, User } from 'lucide-react'
+import { CreditCard, Library, LogIn, LogOut, ShoppingBag, User } from 'lucide-react'
 
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -17,6 +17,16 @@ export default function HeaderUserMenu() {
   if (status !== 'authenticated') {
     return (
       <div className="flex items-center gap-1">
+        <Link
+          href="/subscription"
+          aria-label={t('subscription.title')}
+          title={t('subscription.title')}
+          className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+        >
+          <CreditCard className="size-4" />
+          <span>{t('subscription.title')}</span>
+        </Link>
+
         <Link
           href="/login"
           className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
@@ -56,6 +66,15 @@ export default function HeaderUserMenu() {
       >
         <ShoppingBag className="size-4" />
         <span>{t('common.orders')}</span>
+      </Link>
+      <Link
+        href="/subscription"
+        aria-label={t('subscription.title')}
+        title={t('subscription.title')}
+        className="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+      >
+        <CreditCard className="size-4" />
+        <span>{t('subscription.title')}</span>
       </Link>
 
       <Link

@@ -31,7 +31,10 @@
     "latestProducts": "Latest products",
     "freshFromMarketplace": "Fresh from the marketplace",
     "exploreAll": "Explore all",
-    "noImage": "No image"
+    "noImage": "No image",
+    "subscriptionPromoTitle": "Unlock more with a subscription",
+    "subscriptionPromoDescription": "Get unlimited access to paid products with one active subscription.",
+    "subscriptionPromoButton": "View subscription plans"
   },
   "marketplace": {
     "searchPlaceholder": "Search products...",
@@ -56,7 +59,7 @@
   },
   "auth": {
     "login": "Login",
-    "register": "Sign up",
+    "register": "Create account",
     "email": "Email",
     "password": "Password",
     "loginFailed": "Login failed.",
@@ -64,7 +67,6 @@
     "loginDescription": "Sign in to your account",
     "togglePassword": "Show or hide password",
     "name": "Name",
-    "register": "Create account",
     "registerDescription": "Create your account to get started",
     "confirmPassword": "Confirm password",
     "registerFailed": "Registration failed.",
@@ -198,5 +200,27 @@
     "cancelModal": "Keep order",
     "closeModal": "Close",
     "paymentFailed": "We couldn’t continue to payment. Please try again."
+  },
+  "subscription": {
+    "title": "Subscription",
+    "description": "Get unlimited access to paid products with an active subscription.",
+    "plans": "Subscription plans",
+    "monthly": "Monthly",
+    "quarterly": "Quarterly",
+    "yearly": "Yearly",
+    "month": "month",
+    "months": "months",
+    "price": "Price",
+    "subscribe": "Subscribe",
+    "subscribing": "Starting subscription...",
+    "active": "Active subscription",
+    "activeDescription": "Your subscription is active and gives you access to paid products.",
+    "startsAt": "Starts",
+    "endsAt": "Ends",
+    "alreadyActive": "You already have an active subscription.",
+    "loadError": "We couldn’t load subscription plans. Please try again.",
+    "subscribeError": "We couldn’t start your subscription. Please try again.",
+    "loginRequired": "Please log in to subscribe.",
+    "noPlans": "No subscription plans are currently available."
   }
 }

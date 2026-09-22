@@ -10,7 +10,7 @@ export default function Footer() {
   const t = useTranslations()
 
   return (
-    <footer className="mt-24 border-t border-border">
+    <footer className="mt-12 border-t border-border">
       <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr] lg:gap-8">
           <div className="max-w-sm">

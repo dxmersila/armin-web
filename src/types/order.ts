@@ -1,5 +1,6 @@
 import type { Item } from '@/types/item'
 import type { Payment } from '@/types/payment'
+import type { SubscriptionPlan } from '@/types/subscription'
 
 export type OrderType = 'item' | 'subscription'
 export type OrderStatus = 'pending' | 'paid' | 'failed' | 'cancelled'
@@ -18,7 +19,7 @@ export interface Order {
   status: OrderStatus
   total_price: number
   items: OrderItem[]
-  subscription_plan?: unknown
+  subscription_plan?: SubscriptionPlan
   payments?: Payment[]
   created_at: string
 }

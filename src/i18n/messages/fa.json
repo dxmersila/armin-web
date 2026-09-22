@@ -31,7 +31,10 @@
     "latestProducts": "جدیدترین محصولات",
     "freshFromMarketplace": "تازه از مارکت‌پلیس",
     "exploreAll": "مشاهده همه",
-    "noImage": "بدون تصویر"
+    "noImage": "بدون تصویر",
+    "subscriptionPromoTitle": "با اشتراک، بیشتر در دسترس شماست",
+    "subscriptionPromoDescription": "با یک اشتراک فعال، به محصولات پولی دسترسی نامحدود داشته باشید.",
+    "subscriptionPromoButton": "مشاهده پلن‌های اشتراک"
   },
   "marketplace": {
     "searchPlaceholder": "جستجوی محصولات...",
@@ -56,7 +59,7 @@
   },
   "auth": {
     "login": "ورود",
-    "register": "ثبت‌نام",
+    "register": "ایجاد حساب کاربری",
     "email": "ایمیل",
     "password": "رمز عبور",
     "loginFailed": "ورود ناموفق بود.",
@@ -64,7 +67,6 @@
     "loginDescription": "وارد حساب کاربری خود شوید",
     "togglePassword": "نمایش یا مخفی کردن رمز عبور",
     "name": "نام",
-    "register": "ایجاد حساب کاربری",
     "registerDescription": "برای شروع حساب کاربری خود را ایجاد کنید",
     "confirmPassword": "تکرار رمز عبور",
     "registerFailed": "ثبت‌نام ناموفق بود.",
@@ -198,5 +200,27 @@
     "cancelModal": "ادامه سفارش",
     "closeModal": "بستن",
     "paymentFailed": "ادامه پرداخت انجام نشد. دوباره تلاش کنید."
+  },
+  "subscription": {
+    "title": "اشتراک",
+    "description": "با یک اشتراک فعال، به محصولات پولی دسترسی نامحدود داشته باشید.",
+    "plans": "پلن‌های اشتراک",
+    "monthly": "ماهانه",
+    "quarterly": "سه‌ماهه",
+    "yearly": "سالانه",
+    "month": "ماه",
+    "months": "ماه",
+    "price": "مبلغ",
+    "subscribe": "خرید اشتراک",
+    "subscribing": "در حال شروع اشتراک...",
+    "active": "اشتراک فعال",
+    "activeDescription": "اشتراک شما فعال است و به محصولات پولی دسترسی دارید.",
+    "startsAt": "شروع",
+    "endsAt": "پایان",
+    "alreadyActive": "شما در حال حاضر یک اشتراک فعال دارید.",
+    "loadError": "نتوانستیم پلن‌های اشتراک را بارگذاری کنیم. دوباره تلاش کنید.",
+    "subscribeError": "شروع اشتراک انجام نشد. دوباره تلاش کنید.",
+    "loginRequired": "برای خرید اشتراک ابتدا وارد حساب کاربری شوید.",
+    "noPlans": "در حال حاضر پلن اشتراکی در دسترس نیست."
   }
 }

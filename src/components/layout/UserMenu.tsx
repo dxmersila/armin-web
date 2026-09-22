@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Library, LogIn, LogOut, ShoppingBag, User } from 'lucide-react'
+import { CreditCard, Library, LogIn, LogOut, ShoppingBag, User } from 'lucide-react'
 
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -32,6 +32,15 @@ export default function UserMenu({
             </p>
 
             <div className="mt-2 flex items-center gap-2">
+              <Link
+                href="/subscription"
+                onClick={onNavigate}
+                className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+              >
+                <CreditCard className="size-3.5" />
+                {t('subscription.title')}
+              </Link>
+
               <Link
                 href="/login"
                 onClick={onNavigate}
@@ -100,6 +109,15 @@ export default function UserMenu({
         >
           <ShoppingBag className="size-4" />
           <span>{t('common.orders')}</span>
+        </Link>
+
+        <Link
+          href="/subscription"
+          onClick={onNavigate}
+          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+        >
+          <CreditCard className="size-4" />
+          <span>{t('subscription.title')}</span>
         </Link>
 
         <button

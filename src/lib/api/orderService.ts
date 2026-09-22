@@ -7,6 +7,11 @@ interface CreateItemOrderData {
   item_ids: number[]
 }
 
+interface CreateSubscriptionOrderData {
+  type: 'subscription'
+  subscription_plan_id: number
+}
+
 export async function createItemOrder(
   itemIds: number[],
   token: string,
@@ -14,6 +19,22 @@ export async function createItemOrder(
   const data: CreateItemOrderData = {
     type: 'item',
     item_ids: itemIds,
+  }
+
+  return apiClient<{ data: Order }>('/orders', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    token,
+  })
+}
+
+export async function createSubscriptionOrder(
+  subscriptionPlanId: number,
+  token: string,
+): Promise<{ data: Order }> {
+  const data: CreateSubscriptionOrderData = {
+    type: 'subscription',
+    subscription_plan_id: subscriptionPlanId,
   }
 
   return apiClient<{ data: Order }>('/orders', {
