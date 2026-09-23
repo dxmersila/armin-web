@@ -21,7 +21,7 @@ export default function HeaderUserMenu() {
           href="/subscription"
           aria-label={t('subscription.title')}
           title={t('subscription.title')}
-          className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+          className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
         >
           <CreditCard className="size-4" />
           <span>{t('subscription.title')}</span>
@@ -29,7 +29,7 @@ export default function HeaderUserMenu() {
 
         <Link
           href="/login"
-          className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+          className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
         >
           <LogIn className="size-4" />
           <span>{t('common.login')}</span>
@@ -37,7 +37,7 @@ export default function HeaderUserMenu() {
 
         <Link
           href="/register"
-          className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+          className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
         >
           <User className="size-4" />
           <span>{t('common.register')}</span>
@@ -52,7 +52,7 @@ export default function HeaderUserMenu() {
         href="/library"
         aria-label={t('common.library')}
         title={t('common.library')}
-        className="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+        className="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
       >
         <Library className="size-4" />
         <span>{t('common.library')}</span>
@@ -62,7 +62,7 @@ export default function HeaderUserMenu() {
         href="/orders"
         aria-label={t('common.orders')}
         title={t('common.orders')}
-        className="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+        className="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
       >
         <ShoppingBag className="size-4" />
         <span>{t('common.orders')}</span>
@@ -71,7 +71,7 @@ export default function HeaderUserMenu() {
         href="/subscription"
         aria-label={t('subscription.title')}
         title={t('subscription.title')}
-        className="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+        className="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
       >
         <CreditCard className="size-4" />
         <span>{t('subscription.title')}</span>
@@ -81,13 +81,13 @@ export default function HeaderUserMenu() {
         href="/account"
         aria-label={t('common.account')}
         title={user?.name || t('common.account')}
-        className="flex min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 transition hover:bg-surface-muted"
+        className="group flex min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 transition hover:bg-surface-muted hover:text-primary"
       >
-        <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-muted">
+        <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-muted group-hover:text-primary">
           <User className="size-4" />
         </span>
 
-        <span className="max-w-36 truncate text-sm font-medium text-foreground">
+        <span className="max-w-36 truncate text-sm font-medium text-foreground group-hover:text-primary">
           {user?.name || t('common.account')}
         </span>
       </Link>
@@ -97,7 +97,7 @@ export default function HeaderUserMenu() {
         onClick={logout}
         aria-label={t('common.logout')}
         title={t('common.logout')}
-        className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-lg text-muted transition hover:bg-surface-muted hover:text-foreground"
+        className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-lg text-muted transition hover:bg-surface-muted hover:text-primary"
       >
         <LogOut className="size-4 ltr:rotate-180" />
       </button>

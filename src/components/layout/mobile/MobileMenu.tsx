@@ -62,7 +62,7 @@ export default function MobileMenu() {
         ref={buttonRef}
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex size-10 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
+        className="inline-flex size-10 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-muted hover:text-primary"
         aria-label={
           open
             ? t('common.closeMenu')

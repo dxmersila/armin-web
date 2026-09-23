@@ -29,7 +29,7 @@ export default function ThemeToggle() {
           ? t('common.switchToLight')
           : t('common.switchToDark')
       }
-      className="inline-flex items-center justify-center rounded-lg p-2 text-muted transition hover:bg-surface-muted hover:text-foreground"
+      className="inline-flex items-center justify-center rounded-lg p-2 text-muted transition hover:bg-surface-muted hover:text-primary"
     >
       {isDark ? (
         <Sun size={18} />

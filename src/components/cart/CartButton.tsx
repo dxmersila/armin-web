@@ -14,7 +14,7 @@ export default function CartButton() {
     <Link
       href="/cart"
       aria-label={t('cart.title')}
-      className="relative flex size-9 shrink-0 items-center justify-center rounded-lg text-muted transition hover:bg-surface-muted hover:text-foreground"
+      className="relative flex size-9 shrink-0 items-center justify-center rounded-lg text-muted transition hover:bg-surface-muted hover:text-primary"
     >
       <ShoppingCart className="size-4.5" />
 

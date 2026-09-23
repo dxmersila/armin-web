@@ -35,7 +35,7 @@ export default function UserMenu({
               <Link
                 href="/subscription"
                 onClick={onNavigate}
-                className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+                className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
               >
                 <CreditCard className="size-3.5" />
                 {t('subscription.title')}
@@ -45,7 +45,7 @@ export default function UserMenu({
                 <Link
                   href="/login"
                   onClick={onNavigate}
-                  className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+                  className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
                 >
                   <LogIn className="size-3.5" />
                   {t('common.login')}
@@ -54,7 +54,7 @@ export default function UserMenu({
                 <Link
                   href="/register"
                   onClick={onNavigate}
-                  className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+                  className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
                 >
                   <User className="size-3.5" />
                   {t('common.register')}
@@ -89,7 +89,7 @@ export default function UserMenu({
         <Link
           href="/account"
           onClick={onNavigate}
-          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
         >
           <User className="size-4" />
           <span>{t('common.account')}</span>
@@ -98,7 +98,7 @@ export default function UserMenu({
         <Link
           href="/library"
           onClick={onNavigate}
-          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
         >
           <Library className="size-4" />
           <span>{t('common.library')}</span>
@@ -107,7 +107,7 @@ export default function UserMenu({
         <Link
           href="/orders"
           onClick={onNavigate}
-          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
         >
           <ShoppingBag className="size-4" />
           <span>{t('common.orders')}</span>
@@ -116,7 +116,7 @@ export default function UserMenu({
         <Link
           href="/subscription"
           onClick={onNavigate}
-          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+          className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
         >
           <CreditCard className="size-4" />
           <span>{t('subscription.title')}</span>
@@ -129,7 +129,7 @@ export default function UserMenu({
             onNavigate?.()
           }}
           aria-label={t('common.logout')}
-          className="flex w-full cursor-pointer items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
+          className="flex w-full cursor-pointer items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/20"
         >
           <LogOut className="size-4 rtl:rotate-180" />
           <span>{t('common.logout')}</span>

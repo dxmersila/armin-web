@@ -9,7 +9,7 @@ export default function Logo() {
   return (
     <Link
       href="/"
-      className="text-xl font-bold"
+      className="text-xl font-bold text-primary"
     >
       {t('common.appName')}
     </Link>

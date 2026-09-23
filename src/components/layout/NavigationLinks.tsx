@@ -24,7 +24,7 @@ export default function NavigationLinks({
         className="group flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface-muted"
       >
         <span className="min-w-0">
-          <span className="block">{t('navigation.explore')}</span>
+          <span className="block group-hover:text-primary">{t('navigation.explore')}</span>
           <span className="mt-0.5 block text-xs font-normal text-muted">
             {t('navigation.exploreHint')}
           </span>
@@ -40,7 +40,7 @@ export default function NavigationLinks({
       <Link
         href="/items"
         onClick={onNavigate}
-        className="rounded-lg px-2.5 py-2 text-sm text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
+        className="rounded-lg px-2.5 py-2 text-sm text-muted transition-colors hover:bg-surface-muted hover:text-primary"
       >
         {t('navigation.explore')}
       </Link>
@@ -48,7 +48,7 @@ export default function NavigationLinks({
       <Link
         href="/items"
         aria-label={t('navigation.search')}
-        className="flex size-8 items-center justify-center rounded-lg text-muted transition hover:bg-surface-muted hover:text-foreground"
+        className="flex size-8 items-center justify-center rounded-lg text-muted transition hover:bg-surface-muted hover:text-primary"
       >
         <Search className="size-4" />
       </Link>
