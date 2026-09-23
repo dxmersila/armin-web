@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 
 import UserMenu from '@/components/layout/UserMenu'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -62,8 +62,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 rounded-2xl border border-border bg-surface px-5 py-5 sm:px-6 sm:py-6 flex items-center justify-between gap-4">
-          <div>
+        <div className="mt-10 flex flex-col gap-5 rounded-2xl border border-border bg-surface px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-6 sm:py-6">
+          <div className="min-w-0">
             <p className="text-base font-semibold text-foreground">
               {t('footer.ctaTitle')}
             </p>
@@ -75,14 +75,15 @@ export default function Footer() {
 
           <Link
             href="/items"
-            className="inline-flex shrink-0 flex-col items-center rounded-xl bg-primary px-4 py-3 text-primary-foreground transition-opacity hover:opacity-85 md:px-5 md:py-3.5"
+            className="inline-flex w-full shrink-0 flex-col items-center rounded-xl bg-primary px-5 py-3.5 text-primary-foreground transition-opacity hover:opacity-85 sm:w-auto lg:px-6 lg:py-4"
           >
-            <span className="flex items-center gap-1.5 text-lg font-semibold md:gap-2 md:text-xl">
+            <span className="flex items-center gap-1.5 text-lg font-semibold sm:gap-2 sm:text-xl lg:text-[22px]">
               <span>{t('home.explore')}</span>
-              <ArrowRight className="size-3.5 rtl:rotate-180 md:size-4" aria-hidden="true" />
+              <ArrowRight className="size-3.5 rtl:rotate-180 sm:size-4" aria-hidden="true" />
             </span>
 
-            <span className="mt-1 text-[11px] font-medium text-white bg-white/15 border border-white/10 px-2.5 py-0.5 rounded-full">
+            <span className="mt-1.5 flex items-center gap-1.5 text-[10px] font-medium text-primary-foreground/70 sm:text-[11px]">
+              <Sparkles className="size-3" aria-hidden="true" />
               {t('navigation.exploreHint')}
             </span>
           </Link>

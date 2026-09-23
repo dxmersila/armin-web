@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 
 import type { Item } from '@/types/item'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -37,14 +37,15 @@ export default function HeroSection({
           <div className="mt-8">
             <Link
               href="/items"
-              className="inline-flex flex-col items-center rounded-xl bg-primary px-5 py-3.5 text-primary-foreground transition-opacity hover:opacity-85"
+              className="inline-flex w-full max-w-xs flex-col items-center rounded-xl bg-primary px-5 py-3.5 text-primary-foreground transition-opacity hover:opacity-85 sm:w-auto sm:max-w-none lg:px-6 lg:py-4"
             >
-              <span className="flex items-center gap-2 text-xl font-semibold">
+              <span className="flex items-center gap-1.5 text-lg font-semibold sm:gap-2 sm:text-xl lg:text-[22px]">
                 <span>{t('home.explore')}</span>
-                <ArrowRight className="size-4 rtl:rotate-180" aria-hidden="true" />
+                <ArrowRight className="size-3.5 rtl:rotate-180 sm:size-4" aria-hidden="true" />
               </span>
 
-              <span className="mt-1 text-[11px] font-medium text-white bg-white/15 border border-white/10 px-2.5 py-0.5 rounded-full">
+              <span className="mt-1.5 flex items-center gap-1.5 text-[10px] font-medium text-primary-foreground/70 sm:text-[11px]">
+                <Sparkles className="size-3" aria-hidden="true" />
                 {t('navigation.exploreHint')}
               </span>
             </Link>
