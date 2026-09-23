@@ -25,6 +25,7 @@ import type {
   Subscription,
   SubscriptionPlan,
 } from '@/types/subscription'
+import { formatNumber } from '@/lib/format/number'
 
 export default function SubscriptionPlans() {
   const router = useRouter()
@@ -137,10 +138,6 @@ export default function SubscriptionPlans() {
     }
   }
 
-  const formatPrice = (price: number) =>
-    new Intl.NumberFormat(
-      locale === 'fa' ? 'fa-IR' : 'en-US',
-    ).format(price)
 
   const formatDate = (date: string) =>
     new Intl.DateTimeFormat(
@@ -262,7 +259,7 @@ export default function SubscriptionPlans() {
 
             <div className="mt-5">
               <span className="text-2xl font-semibold tabular-nums text-foreground">
-                {formatPrice(plan.price)}
+                {formatNumber(plan.price, locale)}
               </span>
 
               <span className="ms-1 text-sm text-muted">

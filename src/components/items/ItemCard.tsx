@@ -6,6 +6,7 @@ import { BadgeDollarSign, CircleCheck } from 'lucide-react'
 import type { Item } from '@/types/item'
 import { useLocale } from '@/hooks/useLocale'
 import { useTranslations } from '@/hooks/useTranslations'
+import { formatNumber } from '@/lib/format/number'
 
 interface ItemCardProps {
   item: Item
@@ -21,9 +22,7 @@ export default function ItemCard({ item }: ItemCardProps) {
 
   const isFree = item.access_type === 'free'
 
-  const formattedPrice = new Intl.NumberFormat(
-    locale === 'fa' ? 'fa-IR' : 'en-US',
-  ).format(item.price)
+  const formattedPrice = formatNumber(item.price, locale)
 
   return (
     <article className="group min-w-0">

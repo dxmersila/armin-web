@@ -5,6 +5,7 @@ import { CalendarDays, CreditCard, Package, X } from 'lucide-react'
 import { useLocale } from '@/hooks/useLocale'
 import { useTranslations } from '@/hooks/useTranslations'
 import type { Order } from '@/types/order'
+import { formatNumber } from '@/lib/format/number'
 
 interface OrderCardProps {
   order: Order
@@ -24,9 +25,7 @@ export default function OrderCard({
   const t = useTranslations()
   const { locale } = useLocale()
 
-  const formattedTotal = new Intl.NumberFormat(
-    locale === 'fa' ? 'fa-IR' : 'en-US',
-  ).format(order.total_price)
+  const formattedTotal = formatNumber(order.total_price, locale)
 
   const formattedDate = new Intl.DateTimeFormat(
     locale === 'fa' ? 'fa-IR' : 'en-US',
@@ -98,9 +97,7 @@ export default function OrderCard({
                 </span>
 
                 <span className="shrink-0 text-xs text-muted">
-                  {new Intl.NumberFormat(
-                    locale === 'fa' ? 'fa-IR' : 'en-US',
-                  ).format(orderItem.price)}
+                  {formatNumber(orderItem.price, locale)} {t('item.toman')}
                 </span>
               </div>
             ))}
@@ -157,7 +154,7 @@ export default function OrderCard({
             </span>
 
             <span className="font-semibold tabular-nums text-foreground">
-              {formattedTotal}
+              {formattedTotal} {t('item.toman')}
             </span>
           </div>
         </div>

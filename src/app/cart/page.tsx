@@ -7,6 +7,7 @@ import { useCart } from '@/components/cart/CartProvider'
 import EmptyState from '@/components/ui/EmptyState'
 import { useLocale } from '@/hooks/useLocale'
 import { useTranslations } from '@/hooks/useTranslations'
+import { formatNumber } from '@/lib/format/number'
 
 export default function CartPage() {
   const t = useTranslations()
@@ -20,9 +21,7 @@ export default function CartPage() {
     clearCart,
   } = useCart()
 
-  const formattedTotal = new Intl.NumberFormat(
-    locale === 'fa' ? 'fa-IR' : 'en-US',
-  ).format(total)
+  const formattedTotal = formatNumber(total, locale)
 
   if (!isHydrated) {
     return null
@@ -77,9 +76,7 @@ export default function CartPage() {
 
           <div className="divide-y divide-border">
             {items.map((item) => {
-              const formattedPrice = new Intl.NumberFormat(
-                locale === 'fa' ? 'fa-IR' : 'en-US',
-              ).format(item.price)
+              const formattedPrice = formatNumber(item.price, locale)
 
               return (
                 <article

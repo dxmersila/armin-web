@@ -21,6 +21,7 @@ import {
 } from '@/lib/api/itemAccessService'
 import { getToken } from '@/lib/api/token'
 import { getLoginUrl } from '@/lib/auth/redirect'
+import { formatNumber } from '@/lib/format/number'
 
 interface ItemActionsProps {
   item: Item
@@ -81,9 +82,7 @@ export default function ItemActions({ item }: ItemActionsProps) {
     }
   }, [item.slug, status])
 
-  const formattedPrice = new Intl.NumberFormat(
-    locale === 'fa' ? 'fa-IR' : 'en-US',
-  ).format(item.price)
+  const formattedPrice = formatNumber(item.price, locale)
 
   return (
     <section className="border-t border-border pt-6">

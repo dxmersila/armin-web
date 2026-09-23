@@ -23,6 +23,7 @@ import type { Order } from '@/types/order'
 import { useLocale } from '@/hooks/useLocale'
 import { useTranslations } from '@/hooks/useTranslations'
 import { getLoginUrl } from '@/lib/auth/redirect'
+import { formatNumber } from '@/lib/format/number'
 
 export default function CheckoutPage() {
   const router = useRouter()
@@ -43,9 +44,7 @@ export default function CheckoutPage() {
     }
   }, [router, status])
 
-  const formattedTotal = new Intl.NumberFormat(
-    locale === 'fa' ? 'fa-IR' : 'en-US',
-  ).format(total)
+  const formattedTotal = formatNumber(total, locale)
 
   async function handleCreateOrder() {
     const token = getToken()
@@ -219,9 +218,7 @@ export default function CheckoutPage() {
 
           <div className="divide-y divide-border">
             {items.map((item) => {
-              const formattedPrice = new Intl.NumberFormat(
-                locale === 'fa' ? 'fa-IR' : 'en-US',
-              ).format(item.price)
+              const formattedPrice = formatNumber(item.price, locale)
 
               return (
                 <article
