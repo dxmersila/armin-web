@@ -31,7 +31,7 @@ export default function UserMenu({
               {t('common.guest')}
             </p>
 
-            <div className="mt-2 flex items-center gap-2">
+            <div className="mt-2 flex flex-col items-start gap-1.5">
               <Link
                 href="/subscription"
                 onClick={onNavigate}
@@ -41,23 +41,25 @@ export default function UserMenu({
                 {t('subscription.title')}
               </Link>
 
-              <Link
-                href="/login"
-                onClick={onNavigate}
-                className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
-              >
-                <LogIn className="size-3.5" />
-                {t('common.login')}
-              </Link>
+              <div className="flex items-center gap-1.5">
+                <Link
+                  href="/login"
+                  onClick={onNavigate}
+                  className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+                >
+                  <LogIn className="size-3.5" />
+                  {t('common.login')}
+                </Link>
 
-              <Link
-                href="/register"
-                onClick={onNavigate}
-                className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
-              >
-                <User className="size-3.5" />
-                {t('common.register')}
-              </Link>
+                <Link
+                  href="/register"
+                  onClick={onNavigate}
+                  className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-foreground"
+                >
+                  <User className="size-3.5" />
+                  {t('common.register')}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
