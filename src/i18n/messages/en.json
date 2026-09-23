@@ -17,9 +17,10 @@
     "pagination": "Pagination"
   },
   "navigation": {
-    "items": "Products",
     "categories": "Categories",
-    "search": "Search marketplace"
+    "search": "Search marketplace",
+    "explore": "Explore",
+    "exploreHint": "Browse all items"
   },
   "home": {
     "badge": "Digital Product Marketplace",

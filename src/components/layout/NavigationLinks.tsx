@@ -18,24 +18,31 @@ export default function NavigationLinks({
 
   if (mobile) {
     return (
-      <>
-        <Link
-          href="/items"
-          onClick={onNavigate}
-          className="group flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface-muted"
-        >
-          <span>{t('navigation.items')}</span>
-          <ArrowRight className="size-4 text-muted transition-colors group-hover:text-primary rtl:rotate-180" />
-        </Link>
+      <Link
+        href="/items"
+        onClick={onNavigate}
+        className="group flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface-muted"
+      >
+        <span className="min-w-0">
+          <span className="block">{t('navigation.explore')}</span>
+          <span className="mt-0.5 block text-xs font-normal text-muted">
+            {t('navigation.exploreHint')}
+          </span>
+        </span>
 
-      </>
+        <ArrowRight className="size-4 shrink-0 text-muted transition-colors group-hover:text-primary rtl:rotate-180" />
+      </Link>
     )
   }
 
   return (
     <>
-      <Link href="/items" onClick={onNavigate}>
-        {t('navigation.items')}
+      <Link
+        href="/items"
+        onClick={onNavigate}
+        className="rounded-lg px-2.5 py-2 text-sm text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
+      >
+        {t('navigation.explore')}
       </Link>
 
       <Link
