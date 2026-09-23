@@ -21,7 +21,7 @@ export default function Breadcrumbs({
 
   return (
     <nav
-      aria-label={t('marketplace.breadcrumb')}
+      aria-label={t('items.breadcrumb')}
       className="mb-8"
     >
       <ol className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface px-3 py-2 text-sm text-muted">

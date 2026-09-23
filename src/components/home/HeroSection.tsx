@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 import type { Item } from '@/types/item'
 import { useTranslations } from '@/hooks/useTranslations'
@@ -36,9 +37,16 @@ export default function HeroSection({
           <div className="mt-8">
             <Link
               href="/items"
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85"
+              className="inline-flex flex-col items-center rounded-xl bg-primary px-5 py-3.5 text-primary-foreground transition-opacity hover:opacity-85"
             >
-              {t('home.exploreMarketplace')}
+              <span className="flex items-center gap-2 text-xl font-semibold">
+                <span>{t('home.explore')}</span>
+                <ArrowRight className="size-4 rtl:rotate-180" aria-hidden="true" />
+              </span>
+
+              <span className="mt-1 text-[11px] font-medium text-white bg-white/15 border border-white/10 px-2.5 py-0.5 rounded-full">
+                {t('navigation.exploreHint')}
+              </span>
             </Link>
           </div>
         </div>

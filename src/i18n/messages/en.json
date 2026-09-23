@@ -18,44 +18,43 @@
   },
   "navigation": {
     "categories": "Categories",
-    "search": "Search marketplace",
+    "search": "Search products",
     "explore": "Explore",
-    "exploreHint": "Browse all items"
+    "exploreHint": "Browse all products"
   },
   "home": {
-    "badge": "Digital Product Marketplace",
+    "badge": "Digital Products",
     "title": "Build faster with better digital products.",
     "description": "Discover templates, assets, and resources made for creators, developers, and modern teams.",
-    "exploreMarketplace": "Explore Marketplace",
+    "explore": "Explore",
     "browse": "Browse",
     "categories": "Categories",
     "viewAll": "View all",
     "latestProducts": "Latest products",
-    "freshFromMarketplace": "Fresh from the marketplace",
+    "recentlyAdded": "Recently added",
     "exploreAll": "Explore all",
     "noImage": "No image",
     "subscriptionPromoTitle": "Unlock more with a subscription",
     "subscriptionPromoDescription": "Get unlimited access to paid products with one active subscription.",
     "subscriptionPromoButton": "View subscription plans"
   },
-  "marketplace": {
+  "items": {
     "searchPlaceholder": "Search products...",
     "search": "Search",
     "clear": "Clear",
-    "exploreMarketplace": "Explore Marketplace",
-    "exploreProducts": "Explore Products",
     "description": "Discover digital products, templates, and resources.",
     "breadcrumb": "Breadcrumb",
     "noItemsFound": "No products found",
-    "tryChangingSearch": "Try changing your search or filters."
+    "tryChangingSearch": "Try changing your search or filters.",
+    "exploreProducts": "Explore"
   },
   "footer": {
-    "marketplace": "Marketplace",
+    "explore": "Explore",
     "account": "Account",
     "description": "Digital products for creators, developers, and modern teams.",
     "ctaTitle": "Discover something worth building.",
-    "ctaDescription": "Explore digital products from the marketplace.",
-    "ctaButton": "Explore marketplace",
+    "ctaDescription": "Explore digital products and find something worth building.",
+    "ctaButton": "Explore products",
     "builtForCreators": "Built for creators.",
     "allRightsReserved": "All rights reserved."
   },
@@ -122,7 +121,7 @@
   "cart": {
     "title": "Cart",
     "emptyTitle": "Your cart is empty",
-    "emptyDescription": "Browse the marketplace and add paid products you want to purchase.",
+    "emptyDescription": "Browse products and add the ones you want to purchase.",
     "browseItems": "Browse Products",
     "itemsCount": "items",
     "products": "Products",
@@ -228,6 +227,6 @@
   "notFound": {
     "title": "Page not found",
     "description": "The page you're looking for doesn't exist.",
-    "button": "Back to marketplace"
+    "button": "Back to home"
   }
 }

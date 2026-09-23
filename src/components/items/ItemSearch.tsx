@@ -25,7 +25,7 @@ export default function ItemSearch({
         <input
           name="search"
           defaultValue={activeSearch}
-          placeholder={t('marketplace.searchPlaceholder')}
+          placeholder={t('items.searchPlaceholder')}
           className="h-12 w-full rounded-xl border border-border bg-background ps-11 pe-4 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-primary focus:ring-4 focus:ring-primary/15"
         />
       </div>
@@ -35,7 +35,7 @@ export default function ItemSearch({
           type="submit"
           className="inline-flex h-12 flex-1 items-center justify-center rounded-xl bg-primary px-5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85 sm:flex-none"
         >
-          {t('marketplace.search')}
+          {t('items.search')}
         </button>
 
         {activeSearch && (
@@ -44,7 +44,7 @@ export default function ItemSearch({
             className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-border bg-surface px-4 text-sm font-medium text-muted transition hover:border-foreground/20 hover:text-foreground"
           >
             <X className="size-4" />
-            {t('marketplace.clear')}
+            {t('items.clear')}
           </Link>
         )}
       </div>
