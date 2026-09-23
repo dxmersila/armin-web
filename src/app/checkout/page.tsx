@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useCart } from '@/components/cart/CartProvider'
+import Button from '@/components/ui/Button'
 import LoadingSpinner from '@/components/ui/LoadingSpinner'
 import {
   createItemOrder,
@@ -194,18 +195,14 @@ export default function CheckoutPage() {
               </p>
             )}
 
-            <button
+            <Button
               type="button"
               onClick={handleContinueToPayment}
-              disabled={isPaying}
-              className="mt-6 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-[0_14px_30px_-16px_rgba(124,58,237,0.9)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_35px_-16px_rgba(124,58,237,0.95)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20 disabled:cursor-not-allowed disabled:translate-y-0 disabled:opacity-50 disabled:shadow-none"
+              isLoading={isPaying}
+              className="mt-6 px-5 gap-2"
             >
-              {isPaying ? (
-                <LoadingSpinner className="size-5" />
-              ) : (
-                t('checkout.continuePayment')
-              )}
-            </button>
+              {t('checkout.continuePayment')}
+            </Button>
           </div>
         </section>
       </main>
@@ -324,18 +321,14 @@ export default function CheckoutPage() {
               </p>
             )}
 
-            <button
+            <Button
               type="button"
               onClick={handleCreateOrder}
-              disabled={isSubmitting}
-              className="mt-6 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-[0_14px_30px_-16px_rgba(124,58,237,0.9)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_35px_-16px_rgba(124,58,237,0.95)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20 disabled:cursor-not-allowed disabled:translate-y-0 disabled:opacity-50 disabled:shadow-none"
+              isLoading={isSubmitting}
+              className="mt-6 px-5 gap-2"
             >
-              {isSubmitting ? (
-                <LoadingSpinner className="size-5" />
-              ) : (
-                t('checkout.createOrder')
-              )}
-            </button>
+              {t('checkout.createOrder')}
+            </Button>
 
             <Link
               href="/cart"
