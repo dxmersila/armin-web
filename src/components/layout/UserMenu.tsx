@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { CreditCard, Library, LogIn, LogOut, ShoppingBag, User } from 'lucide-react'
+import { LogOut, User } from 'lucide-react'
 
 import { useAuth } from '@/components/auth/AuthProvider'
+import { userMenuItems } from '@/components/layout/userMenuItems'
 import { useTranslations } from '@/hooks/useTranslations'
 
 export default function UserMenu({
@@ -19,6 +20,8 @@ export default function UserMenu({
   }
 
   if (status !== 'authenticated') {
+    const { subscription, login, register } = userMenuItems.guest
+
     return (
       <div className="min-w-0">
         <div className="flex items-start gap-2">
@@ -33,31 +36,31 @@ export default function UserMenu({
 
             <div className="mt-2 flex flex-col items-start gap-1.5">
               <Link
-                href="/subscription"
+                href={subscription.href}
                 onClick={onNavigate}
                 className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
               >
-                <CreditCard className="size-3.5" />
-                {t('subscription.title')}
+                <subscription.icon className="size-3.5" />
+                {t(subscription.label)}
               </Link>
 
               <div className="flex items-center gap-1.5">
                 <Link
-                  href="/login"
+                  href={login.href}
                   onClick={onNavigate}
                   className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
                 >
-                  <LogIn className="size-3.5" />
-                  {t('common.login')}
+                  <login.icon className="size-3.5" />
+                  {t(login.label)}
                 </Link>
 
                 <Link
-                  href="/register"
+                  href={register.href}
                   onClick={onNavigate}
                   className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
                 >
-                  <User className="size-3.5" />
-                  {t('common.register')}
+                  <register.icon className="size-3.5" />
+                  {t(register.label)}
                 </Link>
               </div>
             </div>
@@ -67,16 +70,18 @@ export default function UserMenu({
     )
   }
 
+  const { account, library, orders, subscription } = userMenuItems.authenticated
+
   return (
     <div className="min-w-0">
       <div className="flex items-start gap-2">
         <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-muted">
-          <User className="size-4" />
+          <account.icon className="size-4" />
         </span>
 
         <div className="min-w-0 pt-0.5">
           <p className="truncate text-sm font-medium text-foreground">
-            {user?.name || t('common.account')}
+            {user?.name || t(account.label)}
           </p>
 
           <p className="mt-0.5 truncate text-xs text-muted">
@@ -87,39 +92,39 @@ export default function UserMenu({
 
       <div className="mt-4 space-y-1 border-t border-border pt-3">
         <Link
-          href="/account"
+          href={account.href}
           onClick={onNavigate}
           className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
         >
-          <User className="size-4" />
-          <span>{t('common.account')}</span>
+          <account.icon className="size-4" />
+          <span>{t(account.label)}</span>
         </Link>
 
         <Link
-          href="/library"
+          href={library.href}
           onClick={onNavigate}
           className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
         >
-          <Library className="size-4" />
-          <span>{t('common.library')}</span>
+          <library.icon className="size-4" />
+          <span>{t(library.label)}</span>
         </Link>
 
         <Link
-          href="/orders"
+          href={orders.href}
           onClick={onNavigate}
           className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
         >
-          <ShoppingBag className="size-4" />
-          <span>{t('common.orders')}</span>
+          <orders.icon className="size-4" />
+          <span>{t(orders.label)}</span>
         </Link>
 
         <Link
-          href="/subscription"
+          href={subscription.href}
           onClick={onNavigate}
           className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-medium text-muted transition hover:bg-surface-muted hover:text-primary"
         >
-          <CreditCard className="size-4" />
-          <span>{t('subscription.title')}</span>
+          <subscription.icon className="size-4" />
+          <span>{t(subscription.label)}</span>
         </Link>
 
         <button
