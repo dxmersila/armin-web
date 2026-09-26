@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Armin Web
 
-## Getting Started
+Armin Web is the public-facing web application of the Armin Template ecosystem.
 
-First, run the development server:
+It is a separate Next.js application that consumes the Armin API and provides the public product discovery and presentation experience.
+
+## Role in the Armin Ecosystem
+
+Armin consists of three independent applications:
+
+* **Armin API** — Laravel backend and source of truth for business rules, authorization, data, orders, payments, and subscriptions.
+* **Armin Admin** — React-based administrative interface for management workflows.
+* **Armin Web** — Next.js public-facing web application.
+
+The Web application is responsible for public presentation and user experience. Authoritative business rules, authorization, pricing, payments, and access decisions remain in the API.
+
+## Tech Stack
+
+* Next.js 16
+* React 19
+* TypeScript
+* Tailwind CSS 4
+* next-intl
+* next-themes
+* Lucide React
+* Sonner
+* Vazirmatn
+
+## Requirements
+
+* Node.js
+* npm
+* A running Armin API instance
+
+## Environment
+
+Create a local environment file:
+
+```bash
+cp .env.example .env.local
+```
+
+The default development configuration is:
+
+```env
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8080/api/v1
+```
+
+Set `NEXT_PUBLIC_API_BASE_URL` to the base URL of the Armin API used by the Web application.
+
+## Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The Next.js development server will display the local URL in the terminal.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Validation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Run the production build:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run ESLint:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run lint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Start the production server:
 
-## Deploy on Vercel
+```bash
+npm run start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Current Application Scope
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The Web application provides the public-facing experience, including:
+
+* Home page
+* Public item catalog
+* Item discovery
+* Search
+* Category filtering
+* Sorting
+* Item detail pages
+* Responsive layouts
+* Persian and English localization
+* RTL and LTR presentation
+* Dark-oriented visual design
+* Public account and authentication flows
+
+## Repository Structure
+
+The application source code is located in:
+
+```text
+src/
+```
+
+The Web application is intentionally maintained as an independent frontend repository and does not depend on the implementation details of the Admin application.
+
+## Relationship to the API
+
+The Armin API is the authoritative backend.
+
+The Web application is responsible for:
+
+* Public routing
+* Page presentation
+* Catalog and discovery UX
+* Search, filtering, and sorting interfaces
+* Responsive public UX
+* Localization
+* SEO-oriented presentation
+
+The Web application does not make authoritative decisions about:
+
+* Authorization
+* Pricing
+* Payment status
+* Subscription validity
+* User entitlements
+* Protected content access
+
+Those decisions belong to the API.
+
+## Armin Template
+
+Armin Web is part of the reusable Armin Template ecosystem.
+
+The central Armin Template documentation is maintained separately in the API repository. Product-specific work belongs to the product instance created from the Template.
+
+For example:
+
+```text
+Armin Template
+      ↓
+Product Instance
+      ↓
+Armin Web
+      ↓
+Product-specific public experience
+```
+
+## Status
+
+**Complete / Stable**
+
+The current Web application represents the stable public-facing baseline of the Armin Template.
