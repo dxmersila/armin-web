@@ -1,6 +1,7 @@
 import { listCategories } from '@/lib/api/categoryService'
 import { listItems } from '@/lib/api/itemService'
 import ItemFilters from '@/components/items/ItemFilters'
+import ItemAccessType from '@/components/items/ItemAccessType'
 import ItemSearch from '@/components/items/ItemSearch'
 import ItemSort from '@/components/items/ItemSort'
 import ItemsHeader from '@/components/items/ItemsHeader'
@@ -13,6 +14,7 @@ interface ItemsPageProps {
   searchParams: Promise<{
     category?: string
     search?: string
+    access_type?: 'free' | 'paid'
     sort?: 'latest' | 'oldest'
     page?: string
   }>
@@ -28,6 +30,7 @@ export default async function ItemsPage({
     listItems({
       category: params.category,
       search: params.search,
+      access_type: params.access_type,
       sort: params.sort,
       page: currentPage,
     }),
@@ -42,15 +45,16 @@ export default async function ItemsPage({
         <ItemSearch activeSearch={params.search} />
 
         <div className="mt-5 border-t border-border pt-5">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-            <div className="min-w-0">
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-4">
+            <div className="min-w-0 lg:flex-1">
               <ItemFilters
                 categories={categoriesResponse.data}
                 activeCategory={params.category}
               />
             </div>
 
-            <div className="min-w-0">
+            <div className="flex min-w-0 shrink-0 flex-col gap-3 lg:flex-row lg:items-center">
+              <ItemAccessType activeAccessType={params.access_type} />
               <ItemSort activeSort={params.sort} />
             </div>
           </div>
@@ -66,6 +70,7 @@ export default async function ItemsPage({
             lastPage={response.meta.last_page}
             category={params.category}
             search={params.search}
+            accessType={params.access_type}
             sort={params.sort}
           />
         </>

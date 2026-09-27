@@ -115,7 +115,9 @@
     "latest": "Latest",
     "oldest": "Oldest",
     "category": "Category",
-    "moreCategories": "More",
+    "accessType": "Access type",
+    "free": "Free",
+    "paid": "Paid",
     "sort": "Sort"
   },
   "cart": {

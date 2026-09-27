@@ -115,7 +115,9 @@
     "latest": "جدیدترین",
     "oldest": "قدیمی‌ترین",
     "category": "دسته‌بندی",
-    "moreCategories": "بیشتر",
+    "accessType": "نوع دسترسی",
+    "free": "رایگان",
+    "paid": "پولی",
     "sort": "مرتب‌سازی"
   },
   "cart": {

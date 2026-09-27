@@ -10,6 +10,7 @@ interface PaginationProps {
   lastPage: number
   category?: string
   search?: string
+  accessType?: 'free' | 'paid'
   sort?: 'latest' | 'oldest'
 }
 
@@ -18,6 +19,7 @@ export default function Pagination({
   lastPage,
   category,
   search,
+  accessType,
   sort,
 }: PaginationProps) {
   const t = useTranslations()
@@ -35,6 +37,10 @@ export default function Pagination({
 
     if (search) {
       searchParams.set('search', search)
+    }
+
+    if (accessType) {
+      searchParams.set('access_type', accessType)
     }
 
     if (sort) {
