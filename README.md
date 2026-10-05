@@ -20,7 +20,7 @@ The Web application is responsible for public presentation and user experience. 
 * React 19
 * TypeScript
 * Tailwind CSS 4
-* next-intl
+* Custom i18n system with locale and translation hooks
 * next-themes
 * Lucide React
 * Sonner
